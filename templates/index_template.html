@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="style.css">
+        <title> Omnibuster </title>
+    </head>
+
+    <body>
+
+        
+        <main>
+            <div class="TOC">
+                <h1> Table of Contents </h1>
+                {% for d, l in designators_labels %}
+                    <div class="section">
+                        {{ d }}
+                        {{ l }}
+                    </div>
+                {% endfor %}
+            </div>
+
+        </main>
+          
+    </body>

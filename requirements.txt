@@ -1,0 +1,12 @@
+requests==2.23.0
+Flask==1.1.2
+Faker==4.0.3
+gunicorn==20.0.4
+
+
+# Libraries we'll need for HW3:
+# dnspython==2.0.0 
+# python-dotenv==0.15.0
+# Flask-Cors==3.0.8
+# Flask-RESTful==0.3.3
+# pylint-django==2.4.1
