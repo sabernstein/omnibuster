@@ -1,6 +1,11 @@
 from jinja2 import Template, Environment, FileSystemLoader
 from bs4 import BeautifulSoup
 
+# TODO: 1.) make it work for multiple acts
+#       2.) more than just table of contents
+#       3.) abstract it to multiple templates instead of just index_template
+
+
 env = Environment(loader=FileSystemLoader('templates'))
 
 act = input('What act would you like to look at?' + '\n')
