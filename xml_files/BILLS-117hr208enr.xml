@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/css" href="uslm.css"?><bill xmlns="http://schemas.gpo.gov/xml/uslm" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://schemas.gpo.gov/xml/uslm https://www.govinfo.gov/schemas/xml/uslm/uslm-2.0.5.xsd" xml:lang="en">
+<!--Disclaimer: Legislative measures that include compacts or other non-standard data structures will require additional modeling and may contain inconsistencies in the converted USLM XML.-->
+<meta><dc:title>117 HR 208 ENR: To designate the facility of the United States Postal Service located at 500 West Main Street, Suite 102 in Tupelo, Mississippi, as the “Colonel Carlyle ‘Smitty’ Harris Post Office”.</dc:title>
+<dc:type>House Bill</dc:type><docNumber>208</docNumber><citableAs>117 HR 208 ENR</citableAs>
+<citableAs>117hr208enr</citableAs>
+<citableAs>117 H.R. 208 ENR</citableAs>
+<dc:creator>United States House of Representatives</dc:creator><dc:publisher>United States Government Publishing Office</dc:publisher><dc:format>text/xml</dc:format><dc:language>EN</dc:language><dc:rights>Pursuant to Title 17 Section 105 of the United States Code, this file is not subject to copyright protection and is in the public domain.</dc:rights><docStage>ENR</docStage>
+<processedBy>GPO Locator to USLM Converter 3.8.10;Stage2.20210520</processedBy><processedDate>2021-07-29</processedDate>
+<congress>117</congress><session>1</session><publicPrivate>public</publicPrivate>
+</meta>
+<preface><dc:type>H. R.</dc:type><docNumber>208</docNumber>
+
+<congress style="-uslm-lc:I665502" value="117">One Hundred Seventeenth Congress of the United States of America</congress><session style="-uslm-lc:I665503" value="1">AT THE FIRST SESSION</session>
+<enrolledDateline style="-uslm-lc:I665504">Begun and held at the City of Washington on Sunday, the third day of January, two thousand and twenty-one</enrolledDateline>
+</preface>
+<main>
+<longTitle>
+<docTitle style="-uslm-lc:I665505" class="centered fontsize18">An Act</docTitle>
+<officialTitle style="-uslm-lc:I665511" class="centered fontsize8">To designate the facility of the United States Postal Service located at 500 West Main Street, Suite 102 in Tupelo, Mississippi, as the “Colonel Carlyle ‘Smitty’ Harris Post Office”.<?GPOvSpace 08?></officialTitle>
+</longTitle>
+<enactingFormula style="-uslm-lc:I650120">  Be it enacted by the Senate and House of Representa­tives of the United States of America in Congress assembled,</enactingFormula>
+<section identifier="/us/bill/117/hr/208/s1" id="d39e62" style="-uslm-lc:I650146"><num value="1">SECTION 1. </num><heading>COLONEL CARLYLE “SMITTY” HARRIS POST OFFICE.</heading><subsection identifier="/us/bill/117/hr/208/s1/a" id="d39e66" style="-uslm-lc:I650120" class="indent0 fontsize10"><num value="a" style="-uslm-lc:emspace2">(a) </num><heading><inline class="smallCaps">Designation</inline>.—</heading><content>The facility of the United States Postal Service located at 500 West Main Street, Suite 102 in Tupelo, Mississippi, shall be known and designated as the “Colonel Carlyle ‘Smitty’ Harris Post Office”.</content>
+</subsection>
+<subsection identifier="/us/bill/117/hr/208/s1/b" id="d39e76" style="-uslm-lc:I650120" class="indent0 fontsize10"><num value="b" style="-uslm-lc:emspace2">(b) </num><heading><inline class="smallCaps">References</inline>.—</heading><content>Any reference in a law, map, regulation, document, paper, or other record of the United States to the facility referred to in subsection (a) shall be deemed to be a reference to the “Colonel Carlyle ‘Smitty’ Harris Post Office”.</content>
+</subsection>
+</section>
+</main>
+<signatures>
+<signature><role style="-uslm-lc:I650114">Speaker of the House of Representatives.</role></signature>
+<signature><role style="-uslm-lc:I650114">Vice President of the United States and  President of the Senate.</role></signature>
+</signatures>
+</bill>
