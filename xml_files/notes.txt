@@ -3,6 +3,13 @@
 <ref href="/us/usc/t29/s203/m/2/A">29 U.S.C. 203(m)(2)(A)</ref>
 <ref href="/us/usc/t15/s657t/e">15 U.S.C. 657t(e)</ref>
 <ref href="/us/usc/t15/s636/a">15 U.S.C. 636(a)</ref>
+<ref href="/us/usc/t42/s1395ww/d/1/B/iv">42 U.S.C. 1395ww(d)(1)(B)(iv)</ref>
+<ref href="/us/usc/t42/s262">42 U.S.C. 262</ref>
+
+# cfr references
+<ref href="/us/cfr/t45/s164.520">section 164.520 of title 45, Code of Federal Regulations</ref>
+<ref href="/us/cfr/t45/s164.522">section 164.522 of title 45, Code of Federal Regulations</ref>
+<ref href="/us/cfr/t42/s412.622/a/3/ii">section 412.622(a)(3)(ii) of title 42, Code of Federal Regulations</ref>
 
 # definitions
 <paragraph role="definitions" identifier="/us/bill/116/hr/748/dA/tII/stA/s2102/a/5" id="d3355e6445" style="-uslm-lc:I650122" class="indent1 fontsize10"><num value="5" style="-uslm-lc:emspace2">(5) </num><heading><inline class="small-caps">State</inline>.—</heading><content>The term “<term>State</term>” includes the District of Columbia, the Commonwealth of Puerto Rico, the Virgin Islands, Guam, American Samoa, the Commonwealth of the Northern Mariana Islands, the Federated States of Micronesia, the Republic of the Marshall Islands, and the Republic of Palau.</content>

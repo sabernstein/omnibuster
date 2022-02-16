@@ -18,15 +18,57 @@ designators_labels = []
 text = []
 
 
-def getUSC(usc_tag):
-    URL = 'https://www.law.cornell.edu/uscode/text/29/203'
-    page = requests.get(URL)
-    usc_soup = BeautifulSoup(page.content, 'html.parser')
-    for section in usc_soup.find_all('div'):
-        if section.find('a'):
-            if section.a.has_attr('name'): 
-                if (section.a['name'] == 'm_2_A'):
-                    print(section)
+# scrape subsection text from USC
+def getUSCsubsection(ref_soup, subsection):
+    for subsection_element in ref_soup.find_all('div'):
+        if subsection_element.find('a'):
+            if subsection_element.a.has_attr('name'): 
+                if (subsection_element.a['name'] == subsection):
+                    return subsection_element
+
+# scrape subsection text from CFR
+def getCFRsubsection(ref_soup, subsection):
+    for subsection_element in ref_soup.find_all('p'):
+        if subsection_element.find('span'):
+            if subsection_element.span.has_attr('id'): 
+                if (subsection_element.span['id'] == subsection):
+                    return subsection_element
+
+
+def getExternalLink(ref_tag):
+    ref_tags = ref_tag.split('/')
+    doc = ref_tags[2]
+    title = ref_tags[3][1:]
+    section = ref_tags[4][1:]
+
+    # get URL
+    if (doc == 'usc'):
+        url = 'https://www.law.cornell.edu/uscode/text/%s/%s' % (title, section)
+    elif (doc == 'cfr'):
+        url = 'https://www.law.cornell.edu/cfr/text/%s/%s' % (title, section)
+
+    # need to decide whether we just want a url or scraping text
+    # if no subsection is listed, just return link
+    if len(ref_tags) < 6:
+        return url
+
+    # this will indicate the div element to grab
+    subsection = ref_tags[5]
+    for tag in ref_tags[6:]:
+        subsection += '_'
+        subsection += tag
+
+    # pull text from law.cornell.edu/uscode
+    page = requests.get(url)
+    ref_soup = BeautifulSoup(page.content, 'html.parser')
+
+    html_scrape = ''
+    if (doc == 'usc'):
+        html_scrape = getUSCsubsection(ref_soup, subsection)
+    elif (doc == 'cfr'):
+        html_scrape = getCFRsubsection(ref_soup, subsection)
+    
+    return html_scrape
 
 
 def create_Arrays():
@@ -65,7 +107,11 @@ def createHTML(designators_labels):
         fh.write(output_from_parsed_template)
 
 create_Arrays()
-findTocLinks()
+# findTocLinks()
 createHTML(designators_labels)
 
-# getUSC('/us/usc/t29/s203/m/2/A')
+print(getExternalLink('/us/cfr/t42/s412.622/a/3/ii'))
+# print(getExternalLink('/us/cfr/t45/s164.520'))
+# print(getExternalLink('/us/usc/t29/s203/m/2/A'))
+# print(getExternalLink('/us/usc/t29/s203'))
+
