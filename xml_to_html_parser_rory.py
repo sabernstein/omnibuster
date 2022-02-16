@@ -25,7 +25,8 @@ def getUSC(usc_tag):
     for section in usc_soup.find_all('div'):
         if section.find('a'):
             if section.a.has_attr('name'): 
-                print(section.a['name'])
+                if (section.a['name'] == 'm_2_A'):
+                    print(section)
 
 
 def create_Arrays():
@@ -53,6 +54,7 @@ def findTocLinks():
                 if section.num.has_attr('value'):
                     if (section.num['value'] == label_value):
                         print(section['identifier'])
+                        break
 
 
 # SOURCE: https://www.codegrepper.com/code-examples/whatever/save+html+to+file+jinja2
@@ -63,7 +65,7 @@ def createHTML(designators_labels):
         fh.write(output_from_parsed_template)
 
 create_Arrays()
-# findTocLinks()
+findTocLinks()
 createHTML(designators_labels)
 
-getUSC('/us/usc/t29/s203/m/2/A')
+# getUSC('/us/usc/t29/s203/m/2/A')
