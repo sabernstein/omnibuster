@@ -1,7 +1,8 @@
-from jinja2 import Template, Environment, FileSystemLoader
-from bs4 import BeautifulSoup
 import re
 import requests
+import jinja2
+from jinja2 import Template, Environment, FileSystemLoader
+from bs4 import BeautifulSoup
 
 
 env = Environment(loader=FileSystemLoader('templates'))
@@ -14,7 +15,7 @@ xml_as_string = text_file.read()
 soup = BeautifulSoup(xml_as_string, "xml")
 labels = []
 designators = []
-designators_labels = []
+info = []
 text = []
 
 
@@ -74,8 +75,8 @@ def getExternalLink(ref_tag):
 def create_Arrays():
     referenceItems = soup.find_all('referenceItem')
     for item in referenceItems:
-        designator_label = (item.designator, item.label)
-        designators_labels.append(designator_label)
+        d_l_i = (item.designator, item.label, findLinks(item.designator))
+        info.append(d_l_i)
 
 def cleanTocLabel(this_string):
     this_string.encode('utf-8')
@@ -85,32 +86,48 @@ def cleanTocLabel(this_string):
     this_string = this_string.replace(u"\u201D", '')
     return this_string
 
-def findTocLinks():
-    for designator_label in designators_labels:
-        label = designator_label[0].text
-        label = cleanTocLabel(label)
-        label_value = label.split()[1]
+def findLinks(this_designator):
+    label = this_designator.text
+    label = cleanTocLabel(label)
 
-        for section in soup.find_all('section'):
-            if section.find('num'):
-                if section.num.has_attr('value'):
-                    if (section.num['value'] == label_value):
-                        print(section['identifier'])
-                        break
+
+    label_split = label.split()
+    if (len(label_split) > 2):
+        label_value = label_split[1]
+    else:
+        label_value = label_split[0]
+
+    for section in soup.find_all('section'):
+        if section.find('num'):
+            if section.num.has_attr('value'):
+                if (section.num['value'] == label_value):
+                    if (section.has_attr('identifier')):
+                        return section['identifier']
+                    # break
 
 
 # SOURCE: https://www.codegrepper.com/code-examples/whatever/save+html+to+file+jinja2
-def createHTML(designators_labels):
-    template = env.get_template('index_template.html')
-    output_from_parsed_template = template.render(designators_labels=designators_labels)
+def createHTML(info):
+    template1 = env.get_template('index_template.html')
+    output_from_parsed_template1 = template1.render(info=info)
     with open("rendered_html/test_output.html", "w") as fh:
-        fh.write(output_from_parsed_template)
+        fh.write(output_from_parsed_template1)
+
+def createSectionHTML(info):
+    template2 = env.get_template('section_template.html')
+    for d, l, i in info:
+        if i != 0:
+            output_from_parsed_template2 = template2.render(identifier=i)
+            with open("rendered_html/section" + str(i) + ".html", "w") as fh:
+                fh.write(output_from_parsed_template2)
+                fh.close()
 
 create_Arrays()
-# findTocLinks()
-createHTML(designators_labels)
+print("INFO: " + str(info))
+createHTML(info)
+createSectionHTML(info)
 
-print(getExternalLink('/us/cfr/t42/s412.622/a/3/ii'))
+# print(getExternalLink('/us/cfr/t42/s412.622/a/3/ii'))
 # print(getExternalLink('/us/cfr/t45/s164.520'))
 # print(getExternalLink('/us/usc/t29/s203/m/2/A'))
 # print(getExternalLink('/us/usc/t29/s203'))

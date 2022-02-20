@@ -12,10 +12,11 @@
         <main>
             <div class="TOC">
                 <h1> Table of Contents </h1>
-                {% for d, l in designators_labels %}
+                {% for d, l, i in info %}
                     <div class="section">
-                        {{ d }}
-                        {{ l }}
+                        <a href="section{{i}}.html"> {{ d }}
+                        {{ l }} 
+                        </a>
                     </div>
                 {% endfor %}
             </div>

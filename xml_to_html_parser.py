@@ -32,6 +32,7 @@ def createHTML(designators_labels):
     output_from_parsed_template = template.render(designators_labels=designators_labels)
     with open("rendered_html/test_output.html", "w") as fh:
         fh.write(output_from_parsed_template)
+    
 
 create_Arrays()
 createHTML(designators_labels)
