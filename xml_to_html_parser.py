@@ -24,6 +24,7 @@ def create_Arrays():
     for item in referenceItems:
         designator_label = (item.designator, item.label)
         designators_labels.append(designator_label)
+        
 
 # SOURCE: https://www.codegrepper.com/code-examples/whatever/save+html+to+file+jinja2
 def createHTML(designators_labels):
