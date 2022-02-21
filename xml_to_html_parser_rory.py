@@ -17,6 +17,7 @@ labels = []
 designators = []
 info = []
 text = []
+text_dict = {}
 
 
 # scrape subsection text from USC
@@ -92,7 +93,7 @@ def findLinks(this_designator):
 
 
     label_split = label.split()
-    if (len(label_split) > 2):
+    if (len(label_split) >= 2):
         label_value = label_split[1]
     else:
         label_value = label_split[0]
@@ -102,9 +103,10 @@ def findLinks(this_designator):
             if section.num.has_attr('value'):
                 if (section.num['value'] == label_value):
                     if (section.has_attr('identifier')):
-                        return section['identifier']
-                    # break
-
+                        text.append(section.text)
+                        i = section['identifier']
+                        sec = i[(len(i)-2):]
+                        return sec
 
 # SOURCE: https://www.codegrepper.com/code-examples/whatever/save+html+to+file+jinja2
 def createHTML(info):
@@ -115,15 +117,16 @@ def createHTML(info):
 
 def createSectionHTML(info):
     template2 = env.get_template('section_template.html')
+    index=0
     for d, l, i in info:
-        if i != 0:
-            output_from_parsed_template2 = template2.render(identifier=i)
-            with open("rendered_html/section" + str(i) + ".html", "w") as fh:
+        if i != None and index < len(text):
+            output_from_parsed_template2 = template2.render(sec=i, text=text[index])
+            with open("rendered_html/section_" + str(i) + ".html", "w") as fh:
                 fh.write(output_from_parsed_template2)
                 fh.close()
+        index += 1
 
 create_Arrays()
-print("INFO: " + str(info))
 createHTML(info)
 createSectionHTML(info)
 
