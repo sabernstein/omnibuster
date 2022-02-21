@@ -124,12 +124,6 @@ def createSectionHTML(info):
         if i != None and index < len(text):
             output_from_parsed_template2 = template2.render(sec=i, text=text[index])
 
-            print(d)
-            print(l)
-            print(i)
-            print(text[index])
-            print("\n")
-
 
             with open("rendered_html/section_" + str(i) + ".html", "w") as fh:
                 fh.write(output_from_parsed_template2)
