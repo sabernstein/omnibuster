@@ -105,7 +105,9 @@ def findLinks(this_designator):
                     if (section.has_attr('identifier')):
                         text.append(section.text)
                         i = section['identifier']
-                        sec = i[(len(i)-2):]
+                        sec_array = i.split('/')
+                        sec = sec_array[len(sec_array)-1]
+                        # sec = i[(len(i)-2):]
                         return sec
 
 # SOURCE: https://www.codegrepper.com/code-examples/whatever/save+html+to+file+jinja2
