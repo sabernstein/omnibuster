@@ -88,9 +88,7 @@ def cleanTocLabel(this_string):
     return this_string
 
 def findLinks(this_designator):
-    label = this_designator.text
-    label = cleanTocLabel(label)
-
+    label = cleanTocLabel(this_designator.text)
 
     label_split = label.split()
     if (len(label_split) >= 2):
@@ -105,9 +103,8 @@ def findLinks(this_designator):
                     if (section.has_attr('identifier')):
                         text.append(section.text)
                         i = section['identifier']
-                        sec_array = i.split('/')
-                        sec = sec_array[len(sec_array)-1]
-                        # sec = i[(len(i)-2):]
+                        i_split = i.split('/')
+                        sec = i_split[len(i_split)-1]
                         return sec
 
 # SOURCE: https://www.codegrepper.com/code-examples/whatever/save+html+to+file+jinja2
@@ -133,9 +130,3 @@ def createSectionHTML(info):
 create_Arrays()
 createHTML(info)
 createSectionHTML(info)
-
-# print(getExternalLink('/us/cfr/t42/s412.622/a/3/ii'))
-# print(getExternalLink('/us/cfr/t45/s164.520'))
-# print(getExternalLink('/us/usc/t29/s203/m/2/A'))
-# print(getExternalLink('/us/usc/t29/s203'))
-
