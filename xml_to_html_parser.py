@@ -1,5 +1,5 @@
 import re
-import requests
+# import requests
 import jinja2
 from jinja2 import Template, Environment, FileSystemLoader
 from bs4 import BeautifulSoup
@@ -99,6 +99,7 @@ def cleanTocLabel(this_string):
     this_string = this_string.replace(u"\u2014", '')
     this_string = this_string.replace(u"\u201C", '')
     this_string = this_string.replace(u"\u201D", '')
+    # print(this_string)
     return this_string
 
 def findLinks(this_designator):
