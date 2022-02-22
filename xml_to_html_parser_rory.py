@@ -37,7 +37,7 @@ def getCFRsubsection(ref_soup, subsection):
                     return subsection_element
 
 
-def getExternalLink(ref_tag):
+def getExternalURL(ref_tag):
     ref_tags = ref_tag.split('/')
     doc = ref_tags[2]
     title = ref_tags[3][1:]
@@ -51,26 +51,39 @@ def getExternalLink(ref_tag):
 
     # need to decide whether we just want a url or scraping text
     # if no subsection is listed, just return link
-    if len(ref_tags) < 6:
-        return url
+    return url
 
-    # this will indicate the div element to grab
-    subsection = ref_tags[5]
-    for tag in ref_tags[6:]:
-        subsection += '_'
-        subsection += tag
+    # if len(ref_tags) < 6:
+    #     return url
 
-    # pull text from law.cornell.edu/uscode
-    page = requests.get(url)
-    ref_soup = BeautifulSoup(page.content, 'html.parser')
+    # # this will indicate the div element to grab
+    # subsection = ref_tags[5]
+    # for tag in ref_tags[6:]:
+    #     subsection += '_'
+    #     subsection += tag
 
-    html_scrape = ''
-    if (doc == 'usc'):
-        html_scrape = getUSCsubsection(ref_soup, subsection)
-    elif (doc == 'cfr'):
-        html_scrape = getCFRsubsection(ref_soup, subsection)
+    # # pull text from law.cornell.edu/uscode
+    # page = requests.get(url)
+    # ref_soup = BeautifulSoup(page.content, 'html.parser')
+
+    # html_scrape = ''
+    # if (doc == 'usc'):
+    #     html_scrape = getUSCsubsection(ref_soup, subsection)
+    # elif (doc == 'cfr'):
+    #     html_scrape = getCFRsubsection(ref_soup, subsection)
     
-    return html_scrape
+    # return html_scrape
+
+def findExternalLinks():
+    for ref in soup.find_all('ref'):
+        if ref.has_attr('href'):
+            current_href = ref['href'].split('/')
+            if (len(current_href) > 4):
+                doc = current_href[2] 
+                if (doc == 'usc' or doc == 'cfr'):
+                    a_tag = soup.new_tag('a')
+                    a_tag['href'] = getExternalURL(ref['href'])
+                    ref.wrap(a_tag)
 
 
 def create_Arrays():
@@ -111,7 +124,7 @@ def findLinks(this_designator):
 def createHTML(info):
     template1 = env.get_template('index_template.html')
     output_from_parsed_template1 = template1.render(info=info)
-    with open("rendered_html/test_output.html", "w") as fh:
+    with open("rendered_html/index.html", "w") as fh:
         fh.write(output_from_parsed_template1)
 
 def createSectionHTML(info):
@@ -128,6 +141,7 @@ def createSectionHTML(info):
                 
             index += 1
 
+findExternalLinks()
 create_Arrays()
 createHTML(info)
 createSectionHTML(info)
