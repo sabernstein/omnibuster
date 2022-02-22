@@ -101,7 +101,7 @@ def findLinks(this_designator):
             if section.num.has_attr('value'):
                 if (section.num['value'] == label_value):
                     if (section.has_attr('identifier')):
-                        text.append(section.text)
+                        text.append(section)
                         i = section['identifier']
                         i_split = i.split('/')
                         sec = i_split[len(i_split)-1]
@@ -125,6 +125,7 @@ def createSectionHTML(info):
             with open("rendered_html/section_" + str(i) + ".html", "w") as fh:
                 fh.write(output_from_parsed_template2)
                 fh.close()
+                
             index += 1
 
 create_Arrays()
