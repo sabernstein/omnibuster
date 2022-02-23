@@ -1,6 +1,4 @@
 import re
-#import requests
-import jinja2
 from jinja2 import Template, Environment, FileSystemLoader
 from bs4 import BeautifulSoup
 
@@ -9,7 +7,7 @@ env = Environment(loader=FileSystemLoader('templates'))
 
 act = input('What act would you like to look at?' + '\n')
 act = str(act)
-text_file = open('xml_files/' + act, errors = 'ignore')
+text_file = open('xml_files/' + act, encoding = 'utf-8', errors = 'ignore')
 xml_as_string = text_file.read()
 
 soup = BeautifulSoup(xml_as_string, "xml")
@@ -18,7 +16,6 @@ designators = []
 info = []
 text = []
 text_dict = {}
-
 
 # scrape subsection text from USC
 def getUSCsubsection(ref_soup, subsection):
@@ -91,14 +88,17 @@ def create_Arrays():
     referenceItems = soup.find_all('referenceItem')
     for item in referenceItems:
         d_l_i = (item.designator, item.label, findLinks(item.designator))
+        print('here!')
         info.append(d_l_i)
 
 def cleanTocLabel(this_string):
-    this_string.encode('utf-8')
-    this_string = this_string.replace('.', '')
-    this_string = this_string.replace(u"\u2014", '')
-    this_string = this_string.replace(u"\u201C", '')
-    this_string = this_string.replace(u"\u201D", '')
+    this_string.encode('utf-8', errors = 'ignore')
+    #this_string = this_string.replace('.', '')
+    #this_string = this_string.replace("\u2000", '')
+    #this_string = this_string.replace(u"\u2014", '')
+    #this_string = this_string.replace(u"\u201C", '')
+    #this_string = this_string.replace(u"\u201D", '') 
+    print(this_string)
     return this_string
 
 def findLinks(this_designator):
@@ -124,7 +124,9 @@ def findLinks(this_designator):
 # SOURCE: https://www.codegrepper.com/code-examples/whatever/save+html+to+file+jinja2
 def createHTML(info):
     template1 = env.get_template('index_template.html')
+    
     output_from_parsed_template1 = template1.render(info=info)
+
     with open("rendered_html/index.html", "w") as fh:
         fh.write(output_from_parsed_template1)
 
@@ -133,9 +135,8 @@ def createSectionHTML(info):
     index=0
     for d, l, i in info:
         if i != None and index < len(text):
+            
             output_from_parsed_template2 = template2.render(sec=i, text=text[index])
-
-
             with open("rendered_html/section_" + str(i) + ".html", "w") as fh:
                 fh.write(output_from_parsed_template2)
                 fh.close()
