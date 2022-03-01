@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Omnibuster Upload</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+    <style>
+        form {
+            display: flex;
+            flex-direction: column;
+            max-width: 450px;
+            background: white;
+            padding: 50px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 10vh;
+        }
+        form > div {
+            margin-bottom: 20px;
+        }
+        form label {
+            width: 100%;
+            font-weight: bold;
+            margin-bottom: 5px;
+            display: inline-block;
+        }
+        form input {
+            background: #f2f2f2;
+            border: solid 1px #CCC;
+            padding: 10px;
+            border-radius: 4px;
+            font-size: 1.3em;
+            width: 100%;
+        }
+        form button {
+            background-color: rgb(79, 67, 182);
+            color: white;
+            padding: 10px;
+            border-radius: 4px;
+            font-size: 1.3em;
+            border: solid 1px #FFF;
+        }
+        form .error {
+            color: #c91111;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <div>
+            <label>Input USLM File of Act</label>
+            <input type="file" id="file" name="Input File" />
+        </div>
+
+        <button id="myButton" class="float-left submit-button" >
+            <script>
+                setTimeout(function() {
+                }, 3000);
+            </script>
+            <a href="../rendered_html/index.html">
+                Upload
+            </a>
+        </button>
+
+    </form> 
+</body>
+</html>
