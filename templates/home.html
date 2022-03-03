@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <title>Omnibuster Upload</title>
+    <link rel="stylesheet" href="style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
     <style>
@@ -47,17 +48,13 @@
     </style>
 </head>
 <body>
-    <form>
+    <form action="" method="POST">
         <div>
             <label>Input USLM File of Act</label>
-            <input type="file" id="file" name="Input File" />
+            <input type="file" id="file" name="input-file" value={{request.form.input-file}} />
         </div>
 
         <button id="myButton" class="float-left submit-button" >
-            <script>
-                setTimeout(function() {
-                }, 3000);
-            </script>
             <a href="../rendered_html/index.html">
                 Upload
             </a>

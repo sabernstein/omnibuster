@@ -4,12 +4,22 @@
         <meta charset="utf-8">
         <link rel="stylesheet" href="uslm.css">
         <link rel="stylesheet" href="style.css">
+        <script lang="text/javascript" src="omni.js" defer></script>
         <title> Omnibuster Section </title>
     </head>
 
     <body>
         <div class="section">
             <h1> Section {{ sec }} </h1>
-            <p> {{ text }}</p>
+            <div class="buttons">
+                <div>
+                    <button onclick="highlightSelection();">Highlight Text</button>
+                </div>
+                <div>
+                    <button onclick="annotateSelection();">[Not working] Annotate Text</button>
+                </div>
+            </div>
+            <p> {{ text }}
+            </p>
         </div>  
     </body>
