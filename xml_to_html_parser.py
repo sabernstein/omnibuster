@@ -86,7 +86,6 @@ def findExternalLinks():
                     a_tag['href'] = getExternalURL(ref['href'])
                     ref.wrap(a_tag)
 
-
 def create_Arrays():
     referenceItems = soup.find_all('referenceItem')
     for item in referenceItems:
@@ -121,6 +120,46 @@ def findLinks(this_designator):
                         sec = i_split[len(i_split)-1]
                         return sec
 
+
+def getCrumbs(this_identifier):
+    # d = division
+    # t = title
+    # st = subtitle
+    # pt = part
+    # spt = subpart
+    # s = section
+    crumbs = []
+
+    for i in this_identifier.split('/'):
+        this_crumb = ''
+
+        if (i.find('d', 0, 1) == 0):
+            this_crumb = 'Division %s' % i[1:]
+            crumbs.append(this_crumb)
+
+        elif (i.find('t', 0, 1) == 0):
+            this_crumb = 'Title %s' % i[1:]
+            crumbs.append(this_crumb)
+
+        elif (i.find('st', 0, 2) == 0):
+            this_crumb = 'Subtitle %s' % i[2:]
+            crumbs.append(this_crumb)
+
+        elif (i.find('pt', 0, 2) == 0):
+            this_crumb = 'Part %s' % i[2:]
+            crumbs.append(this_crumb)
+
+        elif (i.find('spt', 0, 3) == 0):
+            this_crumb = 'Subpart %s' % i[3:]
+            crumbs.append(this_crumb)
+
+        elif (i.find('s', 0, 3) == 0):
+            this_crumb = 'Section %s' % i[1:]
+            crumbs.append(this_crumb)
+             
+    return crumbs
+
+
 # SOURCE: https://www.codegrepper.com/code-examples/whatever/save+html+to+file+jinja2
 def createHTML(info):
     template1 = env.get_template('index_template.html')
@@ -133,8 +172,10 @@ def createSectionHTML(info):
     index=0
     for d, l, i in info:
         if i != None and index < len(text):
-            output_from_parsed_template2 = template2.render(sec=i, text=text[index])
+            # print(text[index]['identifier'])
+            # getCrumbs(text[index]['identifier'])
 
+            output_from_parsed_template2 = template2.render(sec=i, text=text[index], crumbs=getCrumbs(text[index]['identifier']))
 
             with open("rendered_html/section_" + str(i) + ".html", "w") as fh:
                 fh.write(output_from_parsed_template2)
