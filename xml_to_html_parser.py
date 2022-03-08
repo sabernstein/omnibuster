@@ -84,6 +84,7 @@ def findExternalLinks():
                 if (doc == 'usc' or doc == 'cfr'):
                     a_tag = soup.new_tag('a')
                     a_tag['href'] = getExternalURL(ref['href'])
+                    a_tag['target'] = '_blank'
                     ref.wrap(a_tag)
 
 def create_Arrays():

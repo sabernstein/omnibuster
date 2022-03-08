@@ -51,4 +51,9 @@ ul.breadcrumb {
     color: #01447e;
     text-decoration: underline;
   }
->>>>>>> 2f0f028de38f04a33f0c755b8d5c0a570454bf16
+
+  title {
+    margin-top: 30px;
+    padding-top: 30px;
+  }
+
