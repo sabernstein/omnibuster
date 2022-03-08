@@ -10,12 +10,11 @@ html {
     /*margin-left: 500px;*/
 }
 
-<<<<<<< HEAD
 .buttons {
     display: flex;
     flex-direction: column;
 }
-=======
+
 [href="section_None.html"] {
     margin-left: 25px;
 }
@@ -32,7 +31,7 @@ ul.breadcrumb {
   position: fixed;
   width: 100%;
   top: 0;
-  padding: 3px;
+  padding: 10px;
   margin-left: -255px;
 
 }
