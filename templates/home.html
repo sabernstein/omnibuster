@@ -48,16 +48,14 @@
     </style>
 </head>
 <body>
-    <form action="" method="POST">
+    <form action="/" method="POST" enctype="multipart/form-data">
         <div>
             <label>Input USLM File of Act</label>
-            <input type="file" id="file" name="input-file" value={{request.form.input-file}} />
+            <input type="file" id="file" name="file" />
         </div>
 
-        <button id="myButton" class="float-left submit-button" >
-            <a href="../rendered_html/index.html">
-                Upload
-            </a>
+        <button id="myButton" type="submit" class="float-left submit-button" >
+            Upload
         </button>
 
     </form> 
