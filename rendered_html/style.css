@@ -64,3 +64,51 @@ ul.breadcrumb {
     padding-top: 30px;
   }
 
+  subsection {
+    padding-left: 5px;
+    border-left-style: solid;
+    border-left-color: green;
+    text-indent: 0;
+    border-width: medium;
+  }
+
+  paragraph {
+    padding-left: 5px;
+    border-left-style: solid;
+    border-left-color: blue;
+    text-indent: 0;
+    border-width: medium;
+  }
+
+  subparagraph {
+    padding-left: 5px;
+    border-left-style: solid;
+    border-left-color: red;
+    text-indent: 0;
+    border-width: medium;
+  }
+
+  clause {
+    padding-left: 5px;
+    border-left-style: solid;
+    border-left-color: purple;
+    text-indent: 0;
+    border-width: medium;
+  }
+
+  subclause {
+    padding-left: 5px;
+    border-left-style: solid;
+    border-left-color: orange;
+    text-indent: 0;
+    border-width: medium;
+  }
+
+  item {
+    padding-left: 5px;
+    border-left-style: solid;
+    border-left-color: yellow;
+    text-indent: 0;
+    border-width: medium;
+  }
+
