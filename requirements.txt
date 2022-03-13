@@ -1,12 +1,13 @@
-requests==2.23.0
-Flask==1.1.2
-Faker==4.0.3
+requests==2.23.0            # for testing
+dnspython==2.0.0            # support for connecting to remote MongoDB
+python-dotenv==0.15.0       # support for environment variables
+Flask==2.0.2
+Flask-Cors==3.0.8
+Flask-RESTful==0.3.9
+Flask-JWT-Extended==4.3.1
+
+psycopg2==2.8.6             # PostgreSQL DB connector
+Flask-SQLAlchemy==2.5.1     # Python <--> DB ORM
+pylint-django==2.4.1        # linter help
+Faker==4.0.3                # to install fake data
 gunicorn==20.0.4
-
-
-# Libraries we'll need for HW3:
-# dnspython==2.0.0 
-# python-dotenv==0.15.0
-# Flask-Cors==3.0.8
-# Flask-RESTful==0.3.3
-# pylint-django==2.4.1
