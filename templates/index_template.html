@@ -4,6 +4,7 @@
         <meta charset="utf-8">
         <link rel="stylesheet" href="/static/rendered_html/uslm.css">
         <link rel="stylesheet" href="/static/rendered_html/style.css">
+        <script lang="text/javascript" src="/static/rendered_html/omni.js" defer></script>
         <title> Omnibuster </title>
     </head>
 
@@ -13,12 +14,23 @@
         <main>
             <div class="TOC">
                 <h1> Table of Contents </h1>
+                {% set index = namespace(value=0) -%}
                 {% for d, l, i in info %}
                     <div class="section">
                         <a href="section_{{i}}.html"> {{ d }}
                         {{ l }} 
                         </a>
+                        <button id="button"
+                                onclick="toggleText()" 
+                                aria-expanded="false" 
+                                aria-controls="collapseExample">
+                            Show
+                        </button>
+                        <p id="text">
+                              {{ text[index.value] }}
+                        </p>
                     </div>
+                    {% set index.value = index.value + 1 -%}
                 {% endfor %}
             </div>
 

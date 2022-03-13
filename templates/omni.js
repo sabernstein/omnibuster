@@ -8,3 +8,15 @@ function highlightSelection() {
     span.appendChild(selectedContent);
     selection.insertNode(span);
 }
+
+
+function toggleText(){
+    var x = document.getElementById("text");
+    if (x.style.display === "none") {
+      x.style.display = "block";
+      document.getElementById("button").value = "Show"
+    } else {
+      x.style.display = "none";
+      document.getElementById("button").value = "Hide"
+    }
+  }

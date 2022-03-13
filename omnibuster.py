@@ -137,7 +137,7 @@ class Omni_Parser(object):
     def createHTML(self):
         print("got in here")
         template1 = self.env.get_template('index_template.html')
-        output_from_parsed_template1 = template1.render(info=self.info)
+        output_from_parsed_template1 = template1.render(info=self.info, text=self.text)
         with open("static/rendered_html/index.html", "w") as fh:
             fh.write(output_from_parsed_template1)
 
