@@ -1,2 +1,2 @@
 web: gunicorn app:
-web: node templates/omni.js
+web: node index.js
