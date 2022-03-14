@@ -5,7 +5,8 @@ Flask==2.0.2
 Flask-Cors==3.0.8
 Flask-RESTful==0.3.9
 Flask-JWT-Extended==4.3.1
-bs4==0.0.0
+bs4==0.0.1
+beautifulsoup4==4.9.1
 Jinja2==3.0.1
 
 psycopg2==2.8.6             # PostgreSQL DB connector
