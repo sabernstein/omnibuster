@@ -183,4 +183,5 @@ ul.breadcrumb {
   position: fixed;
   bottom: 30px;
   width: 100%;
+  right: -20px;
 }

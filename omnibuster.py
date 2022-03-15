@@ -177,12 +177,7 @@ class Omni_Parser(object):
                             secnext = self.info[j+k+1][2]
                             break
 
-
-                print(j, secprev, i, secnext)
-
                 output_from_parsed_template2 = template2.render(sec=i, text=self.text[index], crumbs=self.getCrumbs(self.text[index]['identifier']), ps=secprev, ns=secnext)
-
-                # output_from_parsed_template2 = template2.render(sec=i, text=self.text[index], crumbs=self.getCrumbs(self.text[index]['identifier']))
 
                 with open("static/rendered_html/section_" + str(i) + ".html", "w") as fh:
                     fh.write(output_from_parsed_template2)
