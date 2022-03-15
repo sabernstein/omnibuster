@@ -1,7 +1,43 @@
+html {
+  /*margin-top: 100px;*/
+  margin-bottom: 100px;
+  margin-right: 250px;
+  margin-left: 250px;
+  font-size: 140%;
+}
+
 .section {
     margin-bottom: 10px;
     /*margin-left: 500px;*/
 }
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+}
+
+.collapsible {
+    background-color: #eee;
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+}
+  /* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+.active, .collapsible:hover {
+    background-color: #ccc;
+}
+  /* Style the collapsible content. Note: hidden by default */
+/*paragraph {
+    padding: 0 18px;
+    display: none;
+    overflow: hidden;
+    background-color: #F1F1F1;
+}*/
 
 [href="section_None.html"] {
     margin-left: 25px;
@@ -19,8 +55,8 @@ ul.breadcrumb {
   position: fixed;
   width: 100%;
   top: 0;
-  padding: 3px;
-  margin-left: 0px;
+  padding: 10px;
+  margin-left: -255px;
 
 }
   /* Display list items side by side */
@@ -45,3 +81,94 @@ ul.breadcrumb {
     color: #01447e;
     text-decoration: underline;
   }
+
+  title {
+    margin-top: 30px;
+    padding-top: 30px;
+  }
+
+  subsection {
+    padding-left: 5px;
+    border-left-style: solid;
+    border-left-color: green;
+    text-indent: 0;
+    border-width: medium;
+  }
+
+  paragraph {
+    padding-left: 5px;
+    border-left-style: solid;
+    border-left-color: blue;
+    text-indent: 0;
+    border-width: medium;
+  }
+
+  subparagraph {
+    padding-left: 5px;
+    border-left-style: solid;
+    border-left-color: red;
+    text-indent: 0;
+    border-width: medium;
+  }
+
+  clause {
+    padding-left: 5px;
+    border-left-style: solid;
+    border-left-color: purple;
+    text-indent: 0;
+    border-width: medium;
+  }
+
+  subclause {
+    padding-left: 5px;
+    border-left-style: solid;
+    border-left-color: orange;
+    text-indent: 0;
+    border-width: medium;
+  }
+
+  item {
+    padding-left: 5px;
+    border-left-style: solid;
+    border-left-color: yellow;
+    text-indent: 0;
+    border-width: medium;
+  }
+
+
+#ls-btn-prev-sec {
+  position: fixed;
+  bottom: 30vw;
+  left: 5px;
+  z-index: 99;
+  font-size: 60px;
+  font-size: 3rem;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  color: #CCC;
+  cursor: pointer;
+  padding: 15px 5px;
+  border-radius: 4px;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";
+  opacity: 0.6
+}
+
+#ls-btn-next-sec {
+  position: fixed;
+  bottom: 30vw;
+  right: 5px;
+  z-index: 99;
+  font-size: 60px;
+  font-size: 3rem;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  color: #CCC;
+  cursor: pointer;
+  padding: 15px 5px;
+  border-radius: 4px;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=60)";
+  opacity: 0.6
+}
+

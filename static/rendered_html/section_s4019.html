@@ -4,6 +4,7 @@
         <meta charset="utf-8">
         <link rel="stylesheet" href="/static/rendered_html/uslm.css">
         <link rel="stylesheet" href="/static/rendered_html/style.css">
+        <script src="https://kit.fontawesome.com/2ce1080035.js" crossorigin="anonymous"></script>
         <script lang="text/javascript" src="/static/rendered_html/omni.js" defer></script>
 
         <!-- Table of Contents button section sheet. Would ideally be a working breadcrumb --> 
@@ -28,7 +29,6 @@
 
     <body>
         <div class="section">
-            <h1> Section s4019 </h1>
             <div class="buttons">
                 <div>
                     <button onclick="highlightSelection();">Highlight Text</button>
@@ -68,4 +68,17 @@
 </section>
             </p>
         </div>  
+
+        <!-- previous section -->
+        <button onclick="location.href='section_s4018.html'" id="ls-btn-prev-sec" title="go to previous section">
+            <i class="fas fa-angle-left"></i>
+        </button>
+        <!-- end previous section -->
+
+        <!-- next section -->
+        <button onclick="location.href='section_s4020.html'" id="ls-btn-next-sec" title="go to next section" data-ls-target-index="2">
+            <i class="fas fa-angle-right"></i>
+        </button>
+        <!-- end next section -->
+
     </body>
