@@ -15,7 +15,10 @@
                 <h1> Table of Contents </h1>
                 {% for d, l, i in info %}
                     <div class="section">
-                        <a href="section_{{i}}.html"> {{ d }}
+                        {% if i %}
+                            <a href="section_{{i}}.html"> 
+                        {% endif %}
+                        {{ d }}
                         {{ l }} 
                         </a>
                     </div>

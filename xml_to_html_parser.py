@@ -122,6 +122,14 @@ def findLinks(this_designator):
                         return sec
 
 
+def addButtons():
+    # <button type="button" class="collapsible"></button>
+    for num in soup.find_all('num'):
+        button_tag = soup.new_tag('button')
+        button_tag['type']='button'
+        button_tag['class']='collapsible'
+        num.insert_before(button_tag)
+
 def getCrumbs(this_identifier):
     # d = division
     # t = title
@@ -185,6 +193,7 @@ def createSectionHTML(info):
             index += 1
 
 findExternalLinks()
+# addButtons()
 create_Arrays()
 createHTML(info)
 createSectionHTML(info)
