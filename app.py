@@ -2,7 +2,7 @@ import os
 from crypt import methods
 from flask import Flask, render_template, request, redirect
 from werkzeug.utils import secure_filename
-from werkzeug.datastructures import  FileStorage
+from werkzeug.datastructures import FileStorage
 from omnibuster import Omni_Parser
 
 app = Flask(__name__)
@@ -15,7 +15,7 @@ def upload_file():
         f = request.files['file']
         filename = str(f.filename)
         f.save(secure_filename(filename))
-        parser = Omni_Parser(filename)
+        parser = Omni_Parser(secure_filename(filename))
         parser.findExternalLinks()
         parser.create_Arrays()
         parser.createHTML()
