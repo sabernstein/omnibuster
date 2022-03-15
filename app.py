@@ -2,7 +2,7 @@ import os
 from crypt import methods
 from flask import Flask, render_template, request, redirect
 from werkzeug.utils import secure_filename
-from werkzeug.datastructures import FileStorage
+from werkzeug.datastructures import  FileStorage
 from omnibuster import Omni_Parser
 
 app = Flask(__name__)
