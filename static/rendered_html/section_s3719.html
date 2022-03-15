@@ -4,10 +4,11 @@
         <meta charset="utf-8">
         <link rel="stylesheet" href="/static/rendered_html/uslm.css">
         <link rel="stylesheet" href="/static/rendered_html/style.css">
+        <script src="https://kit.fontawesome.com/2ce1080035.js" crossorigin="anonymous"></script>
         <script lang="text/javascript" src="/static/rendered_html/omni.js" defer></script>
 
         <!-- Table of Contents button section sheet. Would ideally be a working breadcrumb --> 
-        <ul class="breadcrumb">
+        <ul class="breadcrumb" style="text-align:center">
             <!-- TODO GENERALIZE THIS --> 
             <li><a href="index.html"> Table of Contents</a></li>
             
@@ -22,22 +23,24 @@
         </ul>
 
 
-        <title> Omnibuster Section </title>
+        <title> Omnibuster </title>
 
     </head>
 
     <body>
         <div class="section">
-            <h1> Section s3719 </h1>
             <div class="buttons">
-                <div>
-                    <button onclick="highlightSelection();">Highlight Text</button>
-                </div>
-                <div>
-                    <button onclick="annotateSelection();">[Not working] Annotate Text</button>
+                <div class="navbar">
+                    <div>
+                        <button onclick="highlightSelection();">Highlight Text</button>
+                    </div>
+                    <div>
+                        <button onclick="annotateSelection();">[Not working] Annotate Text</button>
+                    </div> 
                 </div>
             </div>
-            <p> <section id="d3355e23943" identifier="/us/bill/116/hr/748/dA/tIII/stD/s3719" role="instruction" style="-uslm-lc:I650144"><num value="3719">SEC. 3719. </num><heading>EXPANSION OF THE MEDICARE HOSPITAL ACCELERATED PAYMENT PROGRAM DURING THE COVID–19 PUBLIC HEALTH EMERGENCY.</heading>
+            <p> 
+                <section id="d3355e23943" identifier="/us/bill/116/hr/748/dA/tIII/stD/s3719" role="instruction" style="-uslm-lc:I650144"><num value="3719">SEC. 3719. </num><heading>EXPANSION OF THE MEDICARE HOSPITAL ACCELERATED PAYMENT PROGRAM DURING THE COVID–19 PUBLIC HEALTH EMERGENCY.</heading>
 <chapeau class="indent0 fontsize10" style="-uslm-lc:I650120">  Section 1815 of the Social Security Act (<a href="https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title42-section1395g&amp;num=0&amp;edition=prelim"><ref href="/us/usc/t42/s1395g">42 U.S.C. 1395g</ref></a>) <amendingAction type="amend">is amended</amendingAction>—</chapeau><paragraph class="indent1 fontsize10" id="d3355e23957" identifier="/us/bill/116/hr/748/dA/tIII/stD/s3719/1" style="-uslm-lc:I650122"><num style="-uslm-lc:emspace2" value="1">(1) </num><content>in subsection (e)(3), by <amendingAction type="delete">striking</amendingAction> “<quotedText>In the case</quotedText>” and <amendingAction type="insert">inserting</amendingAction> “<quotedText>Subject to subsection (f), in the case</quotedText>”; and</content>
 </paragraph>
 <paragraph class="indent1 fontsize10" id="d3355e23970" identifier="/us/bill/116/hr/748/dA/tIII/stD/s3719/2" style="-uslm-lc:I650122"><num style="-uslm-lc:emspace2" value="2">(2) </num><content>by <amendingAction type="add">adding</amendingAction> at the end the following new subsection:<quotedContent><subsection class="indent0 fontsize10" style="-uslm-lc:I650120"><num style="-uslm-lc:emspace2" value="f">“(f)</num><paragraph class="inline"><num value="1">(1) </num><content>During the emergency period described in section 1135(g)(1)(B), the Secretary shall expand the program under subsection (e)(3) pursuant to paragraph (2).</content>
@@ -75,4 +78,17 @@
 </section>
             </p>
         </div>  
+
+        <!-- previous section -->
+        <button onclick="location.href='section_s3718.html'" id="ls-btn-prev-sec" title="go to previous section">
+            <i class="fas fa-angle-left"></i>
+        </button>
+        <!-- end previous section -->
+
+        <!-- next section -->
+        <button onclick="location.href='section_s3720.html'" id="ls-btn-next-sec" title="go to next section" data-ls-target-index="2">
+            <i class="fas fa-angle-right"></i>
+        </button>
+        <!-- end next section -->
+
     </body>

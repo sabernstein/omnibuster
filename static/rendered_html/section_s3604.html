@@ -4,10 +4,11 @@
         <meta charset="utf-8">
         <link rel="stylesheet" href="/static/rendered_html/uslm.css">
         <link rel="stylesheet" href="/static/rendered_html/style.css">
+        <script src="https://kit.fontawesome.com/2ce1080035.js" crossorigin="anonymous"></script>
         <script lang="text/javascript" src="/static/rendered_html/omni.js" defer></script>
 
         <!-- Table of Contents button section sheet. Would ideally be a working breadcrumb --> 
-        <ul class="breadcrumb">
+        <ul class="breadcrumb" style="text-align:center">
             <!-- TODO GENERALIZE THIS --> 
             <li><a href="index.html"> Table of Contents</a></li>
             
@@ -22,22 +23,24 @@
         </ul>
 
 
-        <title> Omnibuster Section </title>
+        <title> Omnibuster </title>
 
     </head>
 
     <body>
         <div class="section">
-            <h1> Section s3604 </h1>
             <div class="buttons">
-                <div>
-                    <button onclick="highlightSelection();">Highlight Text</button>
-                </div>
-                <div>
-                    <button onclick="annotateSelection();">[Not working] Annotate Text</button>
+                <div class="navbar">
+                    <div>
+                        <button onclick="highlightSelection();">Highlight Text</button>
+                    </div>
+                    <div>
+                        <button onclick="annotateSelection();">[Not working] Annotate Text</button>
+                    </div> 
                 </div>
             </div>
-            <p> <section id="d3355e21242" identifier="/us/bill/116/hr/748/dA/tIII/stC/s3604" style="-uslm-lc:I650144"><num value="3604">SEC. 3604. </num><heading>OMB WAIVER OF PAID FAMILY AND PAID SICK LEAVE.</heading><subsection class="indent0 fontsize10" id="d3355e21247" identifier="/us/bill/116/hr/748/dA/tIII/stC/s3604/a" role="instruction" style="-uslm-lc:I650120"><num style="-uslm-lc:emspace2" value="a">(a) </num><heading><inline class="small-caps">Family and Medical Leave Act of 1993</inline>.—</heading><content>Section 110(a) of title I of the Family and Medical Leave Act of 1993 (<a href="https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title29-section2611&amp;num=0&amp;edition=prelim"><ref href="/us/usc/t29/s2611/etseq">29 U.S.C. 2611 et seq.</ref></a>) (as added by division C of the Families First Coronavirus Response Act) <amendingAction type="amend">is amended</amendingAction> by <amendingAction type="add">adding</amendingAction> at the end the following new paragraph:<quotedContent><paragraph class="indent1 fontsize10" style="-uslm-lc:I650122"><num style="-uslm-lc:emspace2" value="4">“(4) </num><content>The Director of the Office of Management and Budget shall have the authority to exclude for good cause from the requirements under subsection (b) certain employers of the United States Government with respect to certain categories of Executive Branch employees.”</content>
+            <p> 
+                <section id="d3355e21242" identifier="/us/bill/116/hr/748/dA/tIII/stC/s3604" style="-uslm-lc:I650144"><num value="3604">SEC. 3604. </num><heading>OMB WAIVER OF PAID FAMILY AND PAID SICK LEAVE.</heading><subsection class="indent0 fontsize10" id="d3355e21247" identifier="/us/bill/116/hr/748/dA/tIII/stC/s3604/a" role="instruction" style="-uslm-lc:I650120"><num style="-uslm-lc:emspace2" value="a">(a) </num><heading><inline class="small-caps">Family and Medical Leave Act of 1993</inline>.—</heading><content>Section 110(a) of title I of the Family and Medical Leave Act of 1993 (<a href="https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title29-section2611&amp;num=0&amp;edition=prelim"><ref href="/us/usc/t29/s2611/etseq">29 U.S.C. 2611 et seq.</ref></a>) (as added by division C of the Families First Coronavirus Response Act) <amendingAction type="amend">is amended</amendingAction> by <amendingAction type="add">adding</amendingAction> at the end the following new paragraph:<quotedContent><paragraph class="indent1 fontsize10" style="-uslm-lc:I650122"><num style="-uslm-lc:emspace2" value="4">“(4) </num><content>The Director of the Office of Management and Budget shall have the authority to exclude for good cause from the requirements under subsection (b) certain employers of the United States Government with respect to certain categories of Executive Branch employees.”</content>
 </paragraph>
 </quotedContent>.</content>
 </subsection>
@@ -48,4 +51,17 @@
 </section>
             </p>
         </div>  
+
+        <!-- previous section -->
+        <button onclick="location.href='section_s3603.html'" id="ls-btn-prev-sec" title="go to previous section">
+            <i class="fas fa-angle-left"></i>
+        </button>
+        <!-- end previous section -->
+
+        <!-- next section -->
+        <button onclick="location.href='section_s3605.html'" id="ls-btn-next-sec" title="go to next section" data-ls-target-index="2">
+            <i class="fas fa-angle-right"></i>
+        </button>
+        <!-- end next section -->
+
     </body>

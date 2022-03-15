@@ -90,6 +90,21 @@ class Omni_Parser(object):
                             sec = i_split[len(i_split)-1]
                             return sec
 
+    def addButtons(self):
+    # <button type="button" class="collapsible"></button>
+        for num in self.soup.find_all('num'):
+            button_tag = self.soup.new_tag('button')
+            button_tag['type']='button'
+            button_tag['class']='collapsible'
+            button_tag.string = ''
+
+            # temp_tag = soup.new_tag('temp')
+            # num.insert_before(temp_tag)
+            # temp_tag.wrap(button_tag)
+            # temp_tag.extract()
+
+            num.insert_before(button_tag)
+
 
     def getCrumbs(self, this_identifier):
         # d = division
@@ -140,15 +155,31 @@ class Omni_Parser(object):
     def createSectionHTML(self):
         template2 = self.env.get_template('section_template.html')
         index=0
+        j=0
+
         for d, l, i in self.info:
             if i != None and index < len(self.text):
-                # print(text[index]['identifier'])
-                # getCrumbs(text[index]['identifier'])
 
-                output_from_parsed_template2 = template2.render(sec=i, text=self.text[index], crumbs=self.getCrumbs(self.text[index]['identifier']))
+                secprev = None
+                secnext = None
+
+                if (j > 0):
+                    secprev = self.info[j-1][2]
+
+                if (j < (len(self.info)-1) ):
+                    secnext = self.info[j+1][2]
+
+                print(j, secprev, i, secnext)
+
+                output_from_parsed_template2 = template2.render(sec=i, text=self.text[index], crumbs=self.getCrumbs(self.text[index]['identifier']), ps=secprev, ns=secnext)
+
+                # output_from_parsed_template2 = template2.render(sec=i, text=self.text[index], crumbs=self.getCrumbs(self.text[index]['identifier']))
 
                 with open("static/rendered_html/section_" + str(i) + ".html", "w") as fh:
                     fh.write(output_from_parsed_template2)
                     fh.close()
                     
                 index += 1
+
+            j+=1
+             

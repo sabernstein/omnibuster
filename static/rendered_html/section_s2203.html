@@ -4,10 +4,11 @@
         <meta charset="utf-8">
         <link rel="stylesheet" href="/static/rendered_html/uslm.css">
         <link rel="stylesheet" href="/static/rendered_html/style.css">
+        <script src="https://kit.fontawesome.com/2ce1080035.js" crossorigin="anonymous"></script>
         <script lang="text/javascript" src="/static/rendered_html/omni.js" defer></script>
 
         <!-- Table of Contents button section sheet. Would ideally be a working breadcrumb --> 
-        <ul class="breadcrumb">
+        <ul class="breadcrumb" style="text-align:center">
             <!-- TODO GENERALIZE THIS --> 
             <li><a href="index.html"> Table of Contents</a></li>
             
@@ -22,22 +23,24 @@
         </ul>
 
 
-        <title> Omnibuster Section </title>
+        <title> Omnibuster </title>
 
     </head>
 
     <body>
         <div class="section">
-            <h1> Section s2203 </h1>
             <div class="buttons">
-                <div>
-                    <button onclick="highlightSelection();">Highlight Text</button>
-                </div>
-                <div>
-                    <button onclick="annotateSelection();">[Not working] Annotate Text</button>
+                <div class="navbar">
+                    <div>
+                        <button onclick="highlightSelection();">Highlight Text</button>
+                    </div>
+                    <div>
+                        <button onclick="annotateSelection();">[Not working] Annotate Text</button>
+                    </div> 
                 </div>
             </div>
-            <p> <section id="d3355e10314" identifier="/us/bill/116/hr/748/dA/tII/stB/s2203" style="-uslm-lc:I650144"><num value="2203">SEC. 2203. </num><heading>TEMPORARY WAIVER OF REQUIRED MINIMUM DISTRIBUTION RULES FOR CERTAIN RETIREMENT PLANS AND ACCOUNTS.</heading><subsection class="indent0 fontsize10" id="d3355e10319" identifier="/us/bill/116/hr/748/dA/tII/stB/s2203/a" role="instruction" style="-uslm-lc:I650120"><num style="-uslm-lc:emspace2" value="a">(a) </num><heading><inline class="small-caps">In General</inline>.—</heading><content>Section 401(a)(9) of the Internal Revenue Code of 1986 <amendingAction type="amend">is amended</amendingAction> by <amendingAction type="add">adding</amendingAction> at the end the following new subparagraph:<quotedContent><subparagraph class="indent2 fontsize10" style="-uslm-lc:I650124"><num style="-uslm-lc:emspace2" value="I">“(I) </num><heading><inline class="small-caps">Temporary waiver of minimum required distribution</inline>.—</heading><clause class="indent3 fontsize10" style="-uslm-lc:I650126"><num style="-uslm-lc:emspace2" value="i">“(i) </num><heading><inline class="small-caps">In general</inline>.—</heading><chapeau>The requirements of this paragraph shall not apply for calendar year 2020 to—</chapeau><subclause class="indent4 fontsize10" style="-uslm-lc:I650128"><num style="-uslm-lc:emspace2" value="I">“(I) </num><content>a defined contribution plan which is described in this subsection or in section 403(a) or 403(b),</content>
+            <p> 
+                <section id="d3355e10314" identifier="/us/bill/116/hr/748/dA/tII/stB/s2203" style="-uslm-lc:I650144"><num value="2203">SEC. 2203. </num><heading>TEMPORARY WAIVER OF REQUIRED MINIMUM DISTRIBUTION RULES FOR CERTAIN RETIREMENT PLANS AND ACCOUNTS.</heading><subsection class="indent0 fontsize10" id="d3355e10319" identifier="/us/bill/116/hr/748/dA/tII/stB/s2203/a" role="instruction" style="-uslm-lc:I650120"><num style="-uslm-lc:emspace2" value="a">(a) </num><heading><inline class="small-caps">In General</inline>.—</heading><content>Section 401(a)(9) of the Internal Revenue Code of 1986 <amendingAction type="amend">is amended</amendingAction> by <amendingAction type="add">adding</amendingAction> at the end the following new subparagraph:<quotedContent><subparagraph class="indent2 fontsize10" style="-uslm-lc:I650124"><num style="-uslm-lc:emspace2" value="I">“(I) </num><heading><inline class="small-caps">Temporary waiver of minimum required distribution</inline>.—</heading><clause class="indent3 fontsize10" style="-uslm-lc:I650126"><num style="-uslm-lc:emspace2" value="i">“(i) </num><heading><inline class="small-caps">In general</inline>.—</heading><chapeau>The requirements of this paragraph shall not apply for calendar year 2020 to—</chapeau><subclause class="indent4 fontsize10" style="-uslm-lc:I650128"><num style="-uslm-lc:emspace2" value="I">“(I) </num><content>a defined contribution plan which is described in this subsection or in section 403(a) or 403(b),</content>
 </subclause>
 <subclause class="indent4 fontsize10" style="-uslm-lc:I650128"><num style="-uslm-lc:emspace2" value="II">“(II) </num><content>a defined contribution plan which is an eligible deferred compensation plan described in section 457(b) but only if such plan is maintained by an employer described in section 457(e)(1)(A), or</content>
 </subclause>
@@ -80,4 +83,17 @@
 </section>
             </p>
         </div>  
+
+        <!-- previous section -->
+        <button onclick="location.href='section_s2202.html'" id="ls-btn-prev-sec" title="go to previous section">
+            <i class="fas fa-angle-left"></i>
+        </button>
+        <!-- end previous section -->
+
+        <!-- next section -->
+        <button onclick="location.href='section_s2204.html'" id="ls-btn-next-sec" title="go to next section" data-ls-target-index="2">
+            <i class="fas fa-angle-right"></i>
+        </button>
+        <!-- end next section -->
+
     </body>

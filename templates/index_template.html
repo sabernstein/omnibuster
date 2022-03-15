@@ -17,12 +17,13 @@
                 {% set index = namespace(value=0) -%}
                 {% for d, l, i in info %}
                     <div class="section">
-                        <a href="section_{{i}}.html"> {{ d }}
+                        {% if i %}
+                            <a href="section_{{i}}.html"> 
+                        {% endif %}
+                        {{ d }}
                         {{ l }} 
                         </a>
-                        <p id="text">
-                              {{ text[index.value] }}
-                        </p>
+
                     </div>
                     {% set index.value = index.value + 1 -%}
                 {% endfor %}

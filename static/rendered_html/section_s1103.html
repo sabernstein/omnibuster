@@ -4,10 +4,11 @@
         <meta charset="utf-8">
         <link rel="stylesheet" href="/static/rendered_html/uslm.css">
         <link rel="stylesheet" href="/static/rendered_html/style.css">
+        <script src="https://kit.fontawesome.com/2ce1080035.js" crossorigin="anonymous"></script>
         <script lang="text/javascript" src="/static/rendered_html/omni.js" defer></script>
 
         <!-- Table of Contents button section sheet. Would ideally be a working breadcrumb --> 
-        <ul class="breadcrumb">
+        <ul class="breadcrumb" style="text-align:center">
             <!-- TODO GENERALIZE THIS --> 
             <li><a href="index.html"> Table of Contents</a></li>
             
@@ -20,22 +21,24 @@
         </ul>
 
 
-        <title> Omnibuster Section </title>
+        <title> Omnibuster </title>
 
     </head>
 
     <body>
         <div class="section">
-            <h1> Section s1103 </h1>
             <div class="buttons">
-                <div>
-                    <button onclick="highlightSelection();">Highlight Text</button>
-                </div>
-                <div>
-                    <button onclick="annotateSelection();">[Not working] Annotate Text</button>
+                <div class="navbar">
+                    <div>
+                        <button onclick="highlightSelection();">Highlight Text</button>
+                    </div>
+                    <div>
+                        <button onclick="annotateSelection();">[Not working] Annotate Text</button>
+                    </div> 
                 </div>
             </div>
-            <p> <section id="d3355e3158" identifier="/us/bill/116/hr/748/dA/tI/s1103" style="-uslm-lc:I650144"><num value="1103">SEC. 1103. </num><heading>ENTREPRENEURIAL DEVELOPMENT.</heading><subsection class="indent0 fontsize10" id="d3355e3163" identifier="/us/bill/116/hr/748/dA/tI/s1103/a" style="-uslm-lc:I650120"><num style="-uslm-lc:emspace2" value="a">(a) </num><heading><inline class="small-caps">Definitions</inline>.—</heading><chapeau>In this section—</chapeau><paragraph class="indent1 fontsize10" id="d3355e3172" identifier="/us/bill/116/hr/748/dA/tI/s1103/a/1" role="definitions" style="-uslm-lc:I650122"><num style="-uslm-lc:emspace2" value="1">(1) </num><chapeau>the term “<term>covered small business concern</term>” means a small business concern that has experienced, as a result of COVID–19—</chapeau><subparagraph class="indent2 fontsize10" id="d3355e3177" identifier="/us/bill/116/hr/748/dA/tI/s1103/a/1/A" style="-uslm-lc:I650124"><num style="-uslm-lc:emspace2" value="A">(A) </num><chapeau>supply chain disruptions, including changes in—</chapeau><clause class="indent3 fontsize10" id="d3355e3182" identifier="/us/bill/116/hr/748/dA/tI/s1103/a/1/A/i" style="-uslm-lc:I650126"><num style="-uslm-lc:emspace2" value="i">(i) </num><content>quantity and lead time, including the number of shipments of components and delays in shipments;</content>
+            <p> 
+                <section id="d3355e3158" identifier="/us/bill/116/hr/748/dA/tI/s1103" style="-uslm-lc:I650144"><num value="1103">SEC. 1103. </num><heading>ENTREPRENEURIAL DEVELOPMENT.</heading><subsection class="indent0 fontsize10" id="d3355e3163" identifier="/us/bill/116/hr/748/dA/tI/s1103/a" style="-uslm-lc:I650120"><num style="-uslm-lc:emspace2" value="a">(a) </num><heading><inline class="small-caps">Definitions</inline>.—</heading><chapeau>In this section—</chapeau><paragraph class="indent1 fontsize10" id="d3355e3172" identifier="/us/bill/116/hr/748/dA/tI/s1103/a/1" role="definitions" style="-uslm-lc:I650122"><num style="-uslm-lc:emspace2" value="1">(1) </num><chapeau>the term “<term>covered small business concern</term>” means a small business concern that has experienced, as a result of COVID–19—</chapeau><subparagraph class="indent2 fontsize10" id="d3355e3177" identifier="/us/bill/116/hr/748/dA/tI/s1103/a/1/A" style="-uslm-lc:I650124"><num style="-uslm-lc:emspace2" value="A">(A) </num><chapeau>supply chain disruptions, including changes in—</chapeau><clause class="indent3 fontsize10" id="d3355e3182" identifier="/us/bill/116/hr/748/dA/tI/s1103/a/1/A/i" style="-uslm-lc:I650126"><num style="-uslm-lc:emspace2" value="i">(i) </num><content>quantity and lead time, including the number of shipments of components and delays in shipments;</content>
 </clause>
 <clause class="indent3 fontsize10" id="d3355e3189" identifier="/us/bill/116/hr/748/dA/tI/s1103/a/1/A/ii" style="-uslm-lc:I650126"><num style="-uslm-lc:emspace2" value="ii">(ii) </num><content>quality, including shortages in supply for quality control reasons; and</content>
 </clause>
@@ -130,4 +133,17 @@
 </section>
             </p>
         </div>  
+
+        <!-- previous section -->
+        <button onclick="location.href='section_s1102.html'" id="ls-btn-prev-sec" title="go to previous section">
+            <i class="fas fa-angle-left"></i>
+        </button>
+        <!-- end previous section -->
+
+        <!-- next section -->
+        <button onclick="location.href='section_s1104.html'" id="ls-btn-next-sec" title="go to next section" data-ls-target-index="2">
+            <i class="fas fa-angle-right"></i>
+        </button>
+        <!-- end next section -->
+
     </body>
