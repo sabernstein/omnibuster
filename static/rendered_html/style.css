@@ -172,3 +172,10 @@ ul.breadcrumb {
   opacity: 0.6
 }
 
+
+.navbar {
+  overflow: hidden;
+  position: fixed;
+  bottom: 30px;
+  width: 100%;
+}
