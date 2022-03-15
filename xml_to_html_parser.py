@@ -128,6 +128,13 @@ def addButtons():
         button_tag = soup.new_tag('button')
         button_tag['type']='button'
         button_tag['class']='collapsible'
+        button_tag.string = ''
+
+        # temp_tag = soup.new_tag('temp')
+        # num.insert_before(temp_tag)
+        # temp_tag.wrap(button_tag)
+        # temp_tag.extract()
+
         num.insert_before(button_tag)
 
 def getCrumbs(this_identifier):
@@ -179,18 +186,33 @@ def createHTML(info):
 def createSectionHTML(info):
     template2 = env.get_template('section_template.html')
     index=0
+
+    j = 0
+
     for d, l, i in info:
         if i != None and index < len(text):
             # print(text[index]['identifier'])
             # getCrumbs(text[index]['identifier'])
 
-            output_from_parsed_template2 = template2.render(sec=i, text=text[index], crumbs=getCrumbs(text[index]['identifier']))
+            secprev = 'None'
+            secnext = 'None'
+            if (j > 0):
+                secprev = info[j-1][2]
+
+            if (j < (len(info)-1) ):
+                secnext = info[j+1][2]
+
+            # TODO: need to handle none cases
+
+            output_from_parsed_template2 = template2.render(sec=i, text=text[index], crumbs=getCrumbs(text[index]['identifier']), ps=secprev, ns=secnext)
 
             with open("rendered_html/section_" + str(i) + ".html", "w") as fh:
                 fh.write(output_from_parsed_template2)
                 fh.close()
                 
             index += 1
+
+        j+=1
 
 findExternalLinks()
 # addButtons()
