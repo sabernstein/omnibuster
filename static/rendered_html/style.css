@@ -47,6 +47,11 @@ html {
     margin-left: 75px;
 } 
 
+img {
+  position: static;
+  margin-top: 60px;
+}
+
 /* Breadcrumb https://www.w3schools.com/howto/howto_css_breadcrumbs.asp*/
 /* Style the list */
 ul.breadcrumb {
