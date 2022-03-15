@@ -53,6 +53,7 @@ class Omni_Parser(object):
                     if (doc == 'usc' or doc == 'cfr'):
                         a_tag = self.soup.new_tag('a')
                         a_tag['href'] = self.getExternalURL(ref['href'])
+                        a_tag['target'] = '_blank'
                         ref.wrap(a_tag)
 
     def create_Arrays(self):
@@ -154,20 +155,28 @@ class Omni_Parser(object):
 
     def createSectionHTML(self):
         template2 = self.env.get_template('section_template.html')
-        index=0
-        j=0
+        index = 0
+        j = 0
 
         for d, l, i in self.info:
             if i != None and index < len(self.text):
 
-                secprev = None
-                secnext = None
-
+                secprev = i
+                secnext = i
+   
                 if (j > 0):
-                    secprev = self.info[j-1][2]
+                    for k in range(4):
+                        if (self.info[j-k-1][2] is not None):
+                            secprev = self.info[j-k-1][2]
+                            break
+      
 
                 if (j < (len(self.info)-1) ):
-                    secnext = self.info[j+1][2]
+                    for k in range(3):
+                        if (self.info[j+k+1][2] is not None):
+                            secnext = self.info[j+k+1][2]
+                            break
+
 
                 print(j, secprev, i, secnext)
 
@@ -181,5 +190,5 @@ class Omni_Parser(object):
                     
                 index += 1
 
-            j+=1
+            j += 1
              
