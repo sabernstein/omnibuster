@@ -19,4 +19,9 @@ function toggleText(){
       x.style.display = "none";
       document.getElementById("button").value = "Hide"
     }
-  }
+}
+
+
+
+
+

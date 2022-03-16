@@ -47,3 +47,47 @@ document.body.addEventListener("click", function() {
   document.getElementById('textAreaDiv').style.visibility="hidden";}
 })
 
+
+function toggleGuidebars() {
+    if (document.getElementsByTagName("subsection")[0].style.borderLeftStyle === "hidden") {
+        for (i = 0; i < document.getElementsByTagName("subsection").length; i++){
+            document.getElementsByTagName("subsection")[i].style.borderLeftStyle = "solid"; 
+        }
+        for (i = 0; i < document.getElementsByTagName("paragraph").length; i++){
+            document.getElementsByTagName("paragraph")[i].style.borderLeftStyle = "solid"; 
+        }
+        for (i = 0; i < document.getElementsByTagName("subparagraph").length; i++){
+            document.getElementsByTagName("subparagraph")[i].style.borderLeftStyle = "solid"; 
+        }
+        for (i = 0; i < document.getElementsByTagName("clause").length; i++){
+            document.getElementsByTagName("clause")[i].style.borderLeftStyle = "solid"; 
+        }
+        for (i = 0; i < document.getElementsByTagName("subclause").length; i++){
+            document.getElementsByTagName("subclause")[i].style.borderLeftStyle = "solid"; 
+        }
+        for (i = 0; i < document.getElementsByTagName("item").length; i++){
+            document.getElementsByTagName("item")[i].style.borderLeftStyle = "solid"; 
+        }
+    }
+    else {
+        for (i = 0; i < document.getElementsByTagName("subsection").length; i++){
+            document.getElementsByTagName("subsection")[i].style.borderLeftStyle = "hidden"; 
+        }
+        for (i = 0; i < document.getElementsByTagName("paragraph").length; i++){
+            document.getElementsByTagName("paragraph")[i].style.borderLeftStyle = "hidden"; 
+        }
+        for (i = 0; i < document.getElementsByTagName("subparagraph").length; i++){
+            document.getElementsByTagName("subparagraph")[i].style.borderLeftStyle = "hidden"; 
+        }
+        for (i = 0; i < document.getElementsByTagName("clause").length; i++){
+            document.getElementsByTagName("clause")[i].style.borderLeftStyle = "hidden"; 
+        }
+        for (i = 0; i < document.getElementsByTagName("subclause").length; i++){
+            document.getElementsByTagName("subclause")[i].style.borderLeftStyle = "hidden"; 
+        }
+        for (i = 0; i < document.getElementsByTagName("item").length; i++){
+            document.getElementsByTagName("item")[i].style.borderLeftStyle = "hidden"; 
+        }
+    }
+}
+
