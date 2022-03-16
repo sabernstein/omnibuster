@@ -7,6 +7,8 @@ from omnibuster import Omni_Parser
 
 app = Flask(__name__)
 
+directory = 'static/rendered_html/'
+
 app.config['UPLOAD_FOLDER'] = '../xml_files'
 
 @app.route("/", methods = ["GET", "POST"])
@@ -23,4 +25,13 @@ def upload_file():
         parser.addButtons()
         # redirect
         return redirect('/static/rendered_html/index.html')
+    
+    
+    for file in os.listdir(directory):
+        if file.endswith(".html"):
+            os.remove(directory + "/" + file)
+            continue
+        else:
+            continue
+
     return render_template('home.html')

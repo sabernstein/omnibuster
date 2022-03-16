@@ -184,3 +184,76 @@ ul.breadcrumb {
   bottom: 30px;
   width: 100%;
 }
+
+.fa.control,
+.annotation .edit-button {
+	cursor: pointer;
+}
+
+.fa.control:hover,
+.annotation .edit-button:hover {
+	color: grey;
+}
+
+.annotations {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+}
+
+.annotation {
+	position: absolute;
+}
+
+.annotation .edit-button {
+	position: absolute;
+	right: -3em;
+	top: -3em;
+	padding: 2em;
+}
+
+.annotation .controls {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 100%;
+	height: 100%;
+}
+
+.annotation .control {
+	position: absolute;
+}
+
+.annotation .control.done-button {
+	right: -1em;
+	top: -1em;
+}
+
+.annotation .control.delete-button {
+	right: -1em;
+	top: 0.33em;
+}
+
+.annotation .control.move-button {
+	left: -1em;
+	top: -1em;
+}
+
+.annotation .control.resize-button {
+	right: -0.5em;
+	bottom: -0.5em;
+}
+
+.annotation textarea.control {
+	background-color: rgba(255, 255, 255, 0.75);
+}
+
+.annotation .hidden {
+	display: none;
+}
+
+#textAreaDiv {
+  visibility: hidden;
+}

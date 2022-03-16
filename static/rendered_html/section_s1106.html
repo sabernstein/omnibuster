@@ -35,7 +35,11 @@
                         <button onclick="highlightSelection();">Highlight Text</button>
                     </div>
                     <div>
-                        <button onclick="annotateSelection();">[Not working] Annotate Text</button>
+                        <div id="textAreaDiv">
+                            <textarea name='message' id='message_box'></textarea>
+                            <input name='receiver_id' type='text' id='number' style="display: none" value="">
+                            <button id='btn' class='btn btn-primary' type='submit'>Add Annotation</button>
+                        </div>
                     </div> 
                 </div>
             </div>
