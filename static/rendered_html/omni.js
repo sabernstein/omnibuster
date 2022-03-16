@@ -39,3 +39,11 @@ function highlightSelection() {
     span.appendChild(selectedContent);
     selection.insertNode(span);
 }
+
+document.body.addEventListener("click", function() {
+  if (document.getElementById('textAreaDiv').style.visibility="hidden"){
+  document.getElementById('textAreaDiv').style.visibility="visible";}
+  else{
+  document.getElementById('textAreaDiv').style.visibility="hidden";}
+})
+
