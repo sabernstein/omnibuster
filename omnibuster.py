@@ -164,15 +164,15 @@ class Omni_Parser(object):
                 secprev = i
                 secnext = i
    
-                if (j > 0):
-                    for k in range(4):
+                for k in range(4):
+                    if (j > k):
                         if (self.info[j-k-1][2] is not None):
                             secprev = self.info[j-k-1][2]
                             break
       
 
-                if (j < (len(self.info)-1) ):
-                    for k in range(3):
+                for k in range(3):
+                    if (j < len(self.info) - k - 1):
                         if (self.info[j+k+1][2] is not None):
                             secnext = self.info[j+k+1][2]
                             break
