@@ -29,16 +29,6 @@ var coll = document.getElementsByClassName("collapsible");
           });
         }
 
-// SOURCE: https://stackoverflow.com/questions/6328718/how-to-wrap-surround-highlighted-text-with-an-element
-
-function highlightSelection() {       
-    let selection= window.getSelection().getRangeAt(0);
-    let selectedContent = selection.extractContents();
-    var span= document.createElement("span");
-    span.style.backgroundColor = "yellow";
-    span.appendChild(selectedContent);
-    selection.insertNode(span);
-}
 
 document.body.addEventListener("click", function() {
   if (document.getElementById('textAreaDiv').style.visibility="hidden"){
@@ -47,6 +37,24 @@ document.body.addEventListener("click", function() {
   document.getElementById('textAreaDiv').style.visibility="hidden";}
 })
 
+function popUpText() {
+    definitions = document.getElementById("[unique ID for defintion]")
+    // document.getElementById("myPopup").innerHTML = definitions.innerHTML
+    document.getElementById("myPopup").innerHTML = '"Administration" and "Administrator" mean the Small Business Administration and the Administrator thereof, respectively.'
+    var popup = document.getElementById("myPopup");
+    popup.classList.toggle("show");            
+}       
+               
+
+// SOURCE: https://stackoverflow.com/questions/6328718/how-to-wrap-surround-highlighted-text-with-an-element
+function highlightSelection() {       
+    let selection= window.getSelection().getRangeAt(0);
+    let selectedContent = selection.extractContents();
+    var span= document.createElement("span");
+    span.style.backgroundColor = "yellow";
+    span.appendChild(selectedContent);
+    selection.insertNode(span);
+}
 
 function toggleGuidebars() {
     if (document.getElementsByTagName("subsection")[0].style.borderLeftStyle === "hidden") {
