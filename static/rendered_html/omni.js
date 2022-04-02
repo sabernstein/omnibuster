@@ -54,6 +54,7 @@ function highlightSelection() {
     span.style.backgroundColor = "yellow";
     span.appendChild(selectedContent);
     selection.insertNode(span);
+    window.getSelection().removeAllRanges()
 }
 
 function toggleGuidebars() {
