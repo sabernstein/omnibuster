@@ -8,6 +8,7 @@ html {
 
 .section {
     margin-bottom: 10px;
+    /*margin-top: -100px;*/
     /*margin-left: 500px;*/
 }
 
@@ -139,6 +140,11 @@ ul.breadcrumb {
     text-indent: 0;
     border-width: medium;
   }
+
+
+.stitle {
+  text-align: center;
+}
 
 
 #ls-btn-prev-sec {
@@ -328,14 +334,14 @@ ul.breadcrumb {
 .tooltip .tooltiptext {
   visibility: hidden;
   width: 110px;
-  background-color: darkblue;
+  background-color: #0F1728;
   color: #fff;
   text-align: center;
   border-radius: 3px;
   padding: 5px 0;
   position: absolute;
   z-index: 1;
-  top: -5px;
+  /*top: -5px;*/
   left: 130%;
 }
 
@@ -347,7 +353,7 @@ ul.breadcrumb {
   margin-top: -5px;
   border-width: 5px;
   border-style: solid;
-  border-color: transparent darkblue transparent transparent;
+  border-color: transparent #0F1728 transparent transparent;
 }
 .tooltip:hover .tooltiptext {
   visibility: visible;

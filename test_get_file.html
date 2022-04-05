@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<!-- font-awesome.css 5.15.4 -->
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+			integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"
+		/>
+		<!-- bootstrap v5.1.3 -->
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css"
+			integrity="sha512-GQGU0fMMi238uA+a/bdWJfpUGKUkBdgfFdgBm72SUQ6BeyWjoY/ton0tEjH+OSH9iP4Dfh+7HM0I9f5eR0L/4w=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"
+		/>
+		<!-- bootstrap-select v1.13.18 -->
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.18/css/bootstrap-select.min.css"
+			integrity="sha512-ARJR74swou2y0Q2V9k0GbzQ/5vJ2RBSoCWokg4zkfM29Fb3vZEQyv0iWBMW/yvKgyHSR/7D64pFMmU8nYmbRkg=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"
+		/>
+	</head>
+	<body>
+		<!-- tabbed interface -->
+		<div class="container m-5 p-3">
+			<!-- nav tabs -->
+			<ul class="row nav nav-tabs mb-4" role="tablist">
+				<li class="col nav-item" role="presentation">
+					<button
+						class="nav-link w-100 active"
+						id="tab-link-bills"
+						data-bs-toggle="tab"
+						data-bs-target="#tab-bills"
+						role="tab"
+						aria-controls="tab-bills"
+						aria-selected="true"
+					>
+						Congressional Bills
+					</button>
+				</li>
+				<li class="col nav-item" role="presentation">
+					<button
+						class="nav-link w-100"
+						id="tab-link-laws"
+						data-bs-toggle="tab"
+						data-bs-target="#tab-laws"
+						role="tab"
+						aria-controls="tab-laws"
+						aria-selected="false"
+					>
+						Public and Private Laws
+					</button>
+				</li>
+				<li class="col nav-item" role="presentation">
+					<button
+						class="nav-link w-100"
+						id="tab-link-search"
+						data-bs-toggle="tab"
+						data-bs-target="#tab-search"
+						role="tab"
+						aria-controls="tab-search"
+						aria-selected="false"
+					>
+						Search
+					</button>
+				</li>
+			</ul>
+			<!-- end nav tabs -->
+
+			<!-- tabs content -->
+			<div class="tab-content" id="lsTabContent">
+				<!-- congressional bills -->
+				<div
+					class="tab-pane fade show active"
+					id="tab-bills"
+					role="tabpanel"
+					aria-labelledby="tab-link-bills"
+				>
+					<form
+						id="formGetBill"
+						action="submit"
+						class="ls-form"
+						data-ls-target-doc="bill"
+						data-ls-target-doc-desc="congressional bill"
+					>
+						<div class="row g-4 mb-5">
+							<div class="col-sm">
+								<div class="form-floating">
+									<select
+										class="form-select form-select-md ls-form-select-doccongress"
+										name="congress"
+										id="billSelectCongress"
+										aria-describedby="textBillSelectCongress"
+										placeholder="117"
+									>
+										<option selected>select congress</option>
+										<option value="117">117th Congress</option>
+										<option value="116">116th Congress</option>
+										<option value="115">115th Congress</option>
+										<option value="114">114th Congress</option>
+										<option value="113">113th Congress</option>
+									</select>
+									<label
+										class="form-label select-label"
+										for="billSelectCongress"
+										data-ls-tooltip="Numerical Congress number. Current session is 117. This site currently processes all enrolled bills for the 113th (2013-2014) Congress forward."
+										>congress</label
+									>
+								</div>
+								<div id="textBillSelectCongress" class="form-text">
+									Numerical Congress number. Current session is 117. This site
+									currently processes all enrolled bills for the 113th
+									(2013-2014) Congress forward.
+								</div>
+							</div>
+							<div class="col-sm">
+								<div class="form-floating">
+									<select
+										class="form-select form-select-md ls-form-select-doctype"
+										name="billtype"
+										id="billSelectType"
+										placeholder="bill type"
+										aria-describedby="textBillSelectType"
+									>
+										<option value="">select bill type</option>
+										<option value="hr">House Bill</option>
+										<option value="s">Senate Bill</option>
+										<option value="hjres">House Joint Resolution</option>
+										<option value="sjres">Senate Joint Resolution</option>
+										<option value="hconres">House Concurrent Resolution</option>
+										<option value="sconres">
+											Senate Concurrent Resolution
+										</option>
+										<option value="hres">House Simple Resolution</option>
+										<option value="sres">Senate Simple Resolution</option>
+									</select>
+									<label class="form-label select-label" for="billselectType"
+										>bill type</label
+									>
+								</div>
+								<div id="textBillSelectType" class="form-text">
+									There are eight different types of bills in Congress. Further
+									explanation of these types can be found
+									<a
+										href="https://www.govinfo.gov/help/bills#about"
+										target="_blank"
+										>here</a
+									>.
+								</div>
+							</div>
+							<div class="col-sm">
+								<div class="form-floating">
+									<input
+										class="form-control form-control-md ls-form-input-docnumber"
+										type="text"
+										id="billInputNumber"
+										aria-describedby="textbillInputNumber"
+										placeholder="3684"
+									/>
+									<label
+										for="billInputNumber"
+										class="form-label"
+										data-ls-tooltip="Numerical bill number."
+										>bill number</label
+									>
+								</div>
+								<div id="textLawSelectNumber" class="form-text">
+									Numerical bill number.
+								</div>
+							</div>
+							<div class="col-sm">
+								<div class="form-floating">
+									<select
+										class="form-select form-select-md ls-form-select-docversion"
+										name="version"
+										id="billSelectVersion"
+										aria-describedby="textBillSelectVersion"
+										placeholder="enr"
+									>
+										<option value="" selected>select version of bill</option>
+										<option value="ENR">Enrolled</option>
+										<option value="AS" disabled>Amendment (Senate)</option>
+										<option value="ASH" disabled>
+											Additional Sponsors (House)
+										</option>
+										<option value="ATH" disabled>Agreed to (House)</option>
+										<option value="ATS" disabled>Agreed to (Senate)</option>
+										<option value="CDH" disabled>
+											Committee Discharged (House)
+										</option>
+										<option value="CDS" disabled>
+											Committee Discharged (Senate)
+										</option>
+										<option value="CPH" disabled>
+											Considered and Passed (House)
+										</option>
+										<option value="CPS" disabled>
+											Considered and Passed (Senate)
+										</option>
+										<option value="EAH" disabled>
+											Engrossed Amendment (House)
+										</option>
+										<option value="EAS" disabled>
+											Engrossed Amendment (Senate)
+										</option>
+										<option value="EH" disabled>Engrossed (House)</option>
+										<option value="EPH" disabled>
+											Engrossed and Deemed Passed by House
+										</option>
+										<option value="ES" disabled>Engrossed (Senate)</option>
+										<option value="FAH" disabled>
+											Failed Amendment (House)
+										</option>
+										<option value="FPH" disabled>Failed Passage (House)</option>
+										<option value="FPS" disabled>
+											Failed Passage (Senate)
+										</option>
+										<option value="HDH" disabled>Held at Desk (House)</option>
+										<option value="HDS" disabled>Held at Desk (Senate)</option>
+										<option value="IH" disabled>Introduced (House)</option>
+										<option value="IPH" disabled>
+											Indefinitely Postponed (House)
+										</option>
+										<option value="IPS" disabled>
+											Indefinitely Postponed (Senate)
+										</option>
+										<option value="IS" disabled>Introduced (Senate)</option>
+										<option value="LTH" disabled>Laid on Table (House)</option>
+										<option value="LTS" disabled>Laid on Table (Senate)</option>
+										<option value="OPH" disabled>
+											Ordered to be Printed (House)
+										</option>
+										<option value="OPS" disabled>
+											Ordered to be Printed (Senate)
+										</option>
+										<option value="PAV" disabled>
+											Previous Action Vitiated
+										</option>
+										<option value="PCH" disabled>
+											Placed on Calendar (House)
+										</option>
+										<option value="PCS" disabled>
+											Placed on Calendar (Senate)
+										</option>
+										<option value="PP" disabled>Public Print</option>
+										<option value="PAP" disabled>Printed as Passed</option>
+										<option value="PWAH" disabled>
+											Ordered to be Printed with House Amendment
+										</option>
+										<option value="RAH" disabled>
+											Referred with Amendments (House)
+										</option>
+										<option value="RAS" disabled>
+											Referred with Amendments (Senate)
+										</option>
+										<option value="RCH" disabled>
+											Reference Change (House)
+										</option>
+										<option value="RCS" disabled>
+											Reference Change (Senate)
+										</option>
+										<option value="RDH" disabled>Received in (House)</option>
+										<option value="RDS" disabled>Received in (Senate)</option>
+										<option value="REAH" disabled>
+											Re-engrossed Amendment (House)
+										</option>
+										<option value="RES" disabled>
+											Re-engrossed Amendment (Senate)
+										</option>
+										<option value="RENR" disabled>Re-enrolled Bill</option>
+										<option value="RFH" disabled>Referred in (House)</option>
+										<option value="RFS" disabled>Referred in (Senate)</option>
+										<option value="RH" disabled>Reported in (House)</option>
+										<option value="RHUC" disabled>
+											Returned to House by Unanimous Consent
+										</option>
+										<option value="RIH" disabled>
+											Referral Instructions (House)
+										</option>
+										<option value="RIS" disabled>
+											Referral Instructions (Senate)
+										</option>
+										<option value="RS" disabled>Reported in (Senate)</option>
+										<option value="RTH" disabled>
+											Referred to Committee (House)
+										</option>
+										<option value="RTS" disabled>
+											Referred to Committee (Senate)
+										</option>
+										<option value="SAS" disabled>
+											Additional Sponsors (Senate)
+										</option>
+										<option value="SC" disabled>Sponsor Change</option>
+										<option value="mostrecent" disabled>mostrecent</option>
+									</select>
+									<label
+										class="form-label select-label"
+										for="billSelectVersion"
+										data-ls-tooltip="If bill version is not provided, the most recent version of a bill is returned. Values are as, ash, ath, ats, cdh, cds, cph, cps, eah, eas, eh, enr, eph, es, fah, fph, fps, hdh, hds, ih, iph, ips, is, lth, lts, nat, oph, ops, pap, pav, pch, pcs, pp, pwah, rah, ras, rch, rcs, rdh, rds, re, reah, renr, res, rfh, rfs, rft, rh, rhuc, rih, ris, rs, rth, rts, s_p, sas, sc, mostrecent."
+										>bill version</label
+									>
+								</div>
+								<div id="textBillSelectVersion" class="form-text">
+									There are numerous different bill versions that track a bill
+									through the legislative process from introduction through
+									passage by both chambers (enrolled version). If bill version
+									is not provided, the most recent version is returned.
+									Descriptions of values can be accessed
+									<a
+										href="https://www.govinfo.gov/help/bills#about"
+										target="_blank"
+										>here</a
+									>.
+								</div>
+							</div>
+						</div>
+						<div class="row g-4">
+							<div class="col-auto mx-auto">
+								<button
+									id="btnSubmitBill"
+									type="submit"
+									class="btn btn-lg btn-primary ls-btn-submit"
+								>
+									SUBMIT
+								</button>
+							</div>
+						</div>
+					</form>
+				</div>
+				<!-- end congressional bills -->
+				<!-- public and private laws -->
+				<div
+					class="tab-pane fade"
+					id="tab-laws"
+					role="tabpanel"
+					aria-labelledby="tab-link-laws"
+				>
+					<form
+						id="formGetLawByNumber"
+						action="submit"
+						class="ls-form"
+						data-ls-target-doc="law"
+						data-ls-target-doc-desc="public or private law"
+					>
+						<div class="row g-4 mb-5">
+							<div class="col-sm">
+								<div class="form-floating">
+									<select
+										class="form-select form-select-md ls-form-select-doccongress"
+										name="congress"
+										id="lawSelectCongress"
+										aria-describedby="textLawSelectCongress"
+										placeholder="117"
+									>
+										<option selected>select congress</option>
+										<option value="117">117th Congress</option>
+										<option value="116">116th Congress</option>
+										<option value="115">115th Congress</option>
+										<option value="114">114th Congress</option>
+										<option value="113">113th Congress</option>
+									</select>
+									<label
+										class="form-label select-label"
+										for="lawSelectCongress"
+										data-ls-tooltip="Numerical Congress number. Current session is 117."
+										>congress</label
+									>
+								</div>
+								<div id="textLawSelectCongress" class="form-text">
+									Numerical Congress number. Current session is 117. This site
+									currently processes all public laws and most private laws for
+									the 113th (2013-2014) Congress forward.
+								</div>
+							</div>
+							<div class="col-sm">
+								<div class="form-floating">
+									<select
+										class="form-select form-select-md ls-form-select-doctype"
+										name="type"
+										id="lawSelectType"
+										aria-describedby="textLawSelectType"
+										placeholder="public"
+									>
+										<option selected>select type of law</option>
+										<option value="public">Public Law</option>
+										<option value="private">Private Law</option>
+									</select>
+									<label
+										class="form-label select-label"
+										for="lawSelectType"
+										data-ls-tooltip="Law type. Laws can either be public or private."
+										>law type</label
+									>
+								</div>
+								<div id="textLawSelectType" class="form-text">
+									Law type. Laws can either be public or private.
+								</div>
+							</div>
+							<div class="col-sm">
+								<div class="form-floating">
+									<input
+										class="form-control form-control-md ls-form-input-docnumber"
+										type="text"
+										id="lawSelectNumber"
+										aria-describedby="textLawSelectNumber"
+										placeholder="3684"
+									/>
+									<label
+										for="lawSelectNumber"
+										class="form-label"
+										data-ls-tooltip="Numerical law number. Laws are numbered consecutively within each law type within a Congress."
+										>law number</label
+									>
+								</div>
+								<div id="textLawSelectNumber" class="form-text">
+									Numerical law number. Laws are numbered consecutively within
+									each law type within a Congress.
+								</div>
+							</div>
+						</div>
+						<div class="row my-3">
+							<a id="searchLawByAssocBill" style="text-align: center" href=""
+								>search for law by associated bill</a
+							>
+						</div>
+						<div class="row g-4">
+							<div class="col-auto mx-auto">
+								<button
+									id="btnSubmitLaw"
+									type="submit"
+									class="btn btn-primary ls-btn-submit"
+								>
+									SUBMIT
+								</button>
+							</div>
+						</div>
+					</form>
+					<!-- end search by public law number -->
+
+					<!-- search by associated bill -->
+					<form
+						id="formGetLawByAssocBill"
+						action="submit"
+						class="ls-form"
+						style="display: none"
+						data-ls-target-doc="lawassocbill"
+						data-ls-target-doc-desc="public or private law"
+					>
+						<div class="row g-4 mb-5">
+							<div class="col-sm">
+								<div class="form-floating">
+									<select
+										class="form-select form-select-md ls-form-select-doccongress"
+										name="congress"
+										id="lawByBillSelectCongress"
+										aria-describedby="textLawSelectCongress"
+										placeholder="117"
+									>
+										<option selected>select congress</option>
+										<option value="117">117th Congress</option>
+										<option value="116">116th Congress</option>
+										<option value="115">115th Congress</option>
+										<option value="114">114th Congress</option>
+										<option value="113">113th Congress</option>
+									</select>
+									<label
+										class="form-label select-label"
+										for="lawSelectCongress"
+										data-ls-tooltip="Numerical Congress number. Current session is 117."
+										>congress</label
+									>
+								</div>
+								<div id="textLawSelectCongress" class="form-text">
+									Numerical Congress number. Current session is 117. This site
+									currently processes all public laws and most private laws for
+									the 113th (2013-2014) Congress forward.
+								</div>
+							</div>
+							<div class="col-sm">
+								<div class="form-floating">
+									<select
+										class="form-select form-select-md ls-form-select-doctype"
+										name="type"
+										id="lawByBillSelectType"
+										aria-describedby="textLawSelectType"
+										placeholder="public"
+									>
+										<option selected>select type of law</option>
+										<option value="public">public</option>
+										<option value="private">private</option>
+									</select>
+									<label
+										class="form-label select-label"
+										for="lawSelectType"
+										data-ls-tooltip="Law type. Laws can either be public or private."
+										>law type</label
+									>
+								</div>
+								<div id="textLawSelectType" class="form-text">
+									Law type. Laws can either be public or private.
+								</div>
+							</div>
+							<div class="col-sm">
+								<div class="form-floating">
+									<select
+										class="form-select form-select-md ls-form-select-doctype"
+										name="billtype"
+										id="lawByBillSelectType"
+										placeholder="bill type"
+										aria-describedby="textLawByBillSelectType"
+									>
+										<option value="">select bill type</option>
+										<option value="H.R.">House Bill</option>
+										<option value="S.">Senate Bill</option>
+										<option value="H.J. Res.">House Joint Resolution</option>
+										<option value="S.J. Res.">Senate Joint Resolution</option>
+										<option value="H. Con. Res.">
+											House Concurrent Resolution
+										</option>
+										<option value="S. Con. Res">
+											Senate Concurrent Resolution
+										</option>
+										<option value="H. Res.">House Simple Resolution</option>
+										<option value="S. Res.">Senate Simple Resolution</option>
+									</select>
+									<label
+										class="form-label select-label"
+										for="lawByBillselectType"
+										>bill type</label
+									>
+								</div>
+								<div id="textLawByBillSelectType" class="form-text">
+									There are eight different types of bills in Congress. Further
+									explanation of these types can be found
+									<a
+										href="https://www.govinfo.gov/help/bills#about"
+										target="_blank"
+										>here</a
+									>.
+								</div>
+							</div>
+							<div class="col-sm">
+								<div class="form-floating">
+									<input
+										class="form-control form-control-md ls-form-input-docnumber"
+										type="text"
+										id="lawByBillInputNumber"
+										aria-describedby="textLawByBillInputNumber"
+										placeholder="3684"
+									/>
+									<label
+										for="lawByBillInputNumber"
+										class="form-label"
+										data-ls-tooltip="Numerical bill number."
+										>bill number</label
+									>
+								</div>
+								<div id="textLawByBillSelectNumber" class="form-text">
+									Numerical bill number.
+								</div>
+							</div>
+						</div>
+						<div class="row my-3">
+							<a id="searchLawByNumber" style="text-align: center" href=""
+								>search for law by public or private law number</a
+							>
+						</div>
+						<div class="row g-4">
+							<div class="col-auto mx-auto">
+								<button
+									id="btnSubmitLawByBill"
+									type="submit"
+									class="btn btn-primary ls-btn-submit"
+								>
+									SUBMIT
+								</button>
+							</div>
+						</div>
+					</form>
+					<!-- end search by associated bill -->
+				</div>
+				<!-- end public and private laws -->
+				<!-- search -->
+				<div
+					class="tab-pane fade"
+					id="tab-search"
+					role="tabpanel"
+					aria-labelledby="tab-link-search"
+				>
+					<div id="usGovtSearch" class="row">
+						<div class="col-6 mx-auto my-5">
+							<form onsubmit="externalFormAction();" class="mx-auto">
+								<div class="govinfo-search__container mx-auto">
+									<div
+										class="d-flex flex-row flex-nowrap justify-content-start align-items-center"
+									>
+										<img
+											alt="blue govinfo logo"
+											src="https://www.govinfo.gov/media/govinfo_eagle_homepage.png"
+											style="
+												float: left;
+												margin-right: 20px;
+												height: 10vh;
+												max-height: 5vw;
+												min-height: 100px;
+											"
+										/>
+										<div role="search" class="govinfo-search__box">
+											<div class="d-flex flex-column">
+												<label for="govinfo-external-search" class="mb-2"
+													>Discover U.S. Government Information:</label
+												>
+												<input
+													id="govinfo-external-search"
+													placeholder="Search govinfo.gov"
+													type="text"
+													class="mb-3"
+												/>
+												<button id="search-submit" type="submit" class="w-50">
+													Search
+												</button>
+											</div>
+										</div>
+									</div>
+								</div>
+							</form>
+							<script type="text/javascript">
+								function externalFormAction() {
+									var govinfoParam = document.getElementById(
+										'govinfo-external-search'
+									).value;
+									event.preventDefault();
+									window.open(
+										'https://www.govinfo.gov/app/search/{"query":"' +
+											govinfoParam +
+											'","offset":0}',
+										'_blank'
+									);
+								}
+							</script>
+						</div>
+					</div>
+				</div>
+				<!-- end search -->
+			</div>
+			<!-- end tabs content -->
+		</div>
+		<!-- end tabbed interface -->
+
+		<!-- modal alert -->
+		<div
+			class="modal fade"
+			id="alertModal"
+			tabindex="-1"
+			role="dialog"
+			aria-labelledby="exampleModalLabel"
+			aria-hidden="true"
+		>
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="alertModalLabel"></h5>
+						<button
+							type="button"
+							class="close"
+							data-dismiss="modal"
+							aria-label="Close"
+						>
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body"></div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-primary" data-dismiss="modal">
+							Close
+						</button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- end modal alert -->
+
+		<!-- output -->
+		<div class="row" style="background: lightyellow; border: 2px solid blue">
+			<h4 class="col-12 p-3 text-center">OUTPUT:</h4>
+			<div
+				id="getDocResults"
+				class="col-12 mx-3 mb-3 p-3"
+				style="border: 1px solid red"
+			>
+				&nbsp
+			</div>
+		</div>
+		<!-- end output -->
+
+		<!-- scripts -->
+		<!-- jquery v3.6.0 -->
+		<script
+			src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+			integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"
+		></script>
+		<!-- bootstrap.js bundle 5.1.3 includes popper -->
+		<script
+			src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.min.js"
+			integrity="sha512-OvBgP9A2JBgiRad/mM36mkzXSXaJE9BEIENnVEmeZdITvwT09xnxLtT4twkCa8m/loMbPHsvPl0T8lRGVBwjlQ=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"
+		></script>
+		<!-- bootstrap-select v1.13.18 -->
+		<script
+			src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.18/js/bootstrap-select.min.js"
+			integrity="sha512-yDlE7vpGDP7o2eftkCiPZ+yuUyEcaBwoJoIhdXv71KZWugFqEphIS3PU60lEkFaz8RxaVsMpSvQxMBaKVwA5xg=="
+			crossorigin="anonymous"
+			referrerpolicy="no-referrer"
+		></script>
+
+		<script src="get_file.js" async defer></script>
+		<!-- end scripts -->
+	</body>
+</html>

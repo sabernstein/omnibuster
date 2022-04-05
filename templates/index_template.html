@@ -5,17 +5,20 @@
         <link rel="stylesheet" href="/static/rendered_html/uslm.css">
         <link rel="stylesheet" href="/static/rendered_html/style.css">
         <script lang="text/javascript" src="/static/rendered_html/omni.js" defer></script>
-
-        <!-- <title> Omnibuster </title> -->
+        <img src="../omni.jpg" alt="Omnibuster" style="width:100%">
     </head>
 
     <body>
 
-        <img src="../omni.jpg" alt="Omnibuster" style="width:100%">
+
 
         <main>
+            <div class="stitle">
+                <h1> {{ st }} </h1>
+            </div>
+
             <div class="TOC">
-                <h1> Table of Contents </h1>
+                <h2> Table of Contents </h2>
                 {% set index = namespace(value=0) -%}
                 {% for d, l, i in info %}
                     <div class="section">

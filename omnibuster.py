@@ -9,6 +9,7 @@ class Omni_Parser(object):
         self.soup = BeautifulSoup(self.xml_as_string, "xml")
         self.info = []
         self.text = []
+        self.stitle = ''
 
     # scrape subsection text from USC
     def getUSCsubsection(self, ref_soup, subsection):
@@ -91,6 +92,10 @@ class Omni_Parser(object):
                             sec = i_split[len(i_split)-1]
                             return sec
 
+    def getShortTitle(self):
+        shortTitle = self.soup.find_all('shortTitle')
+        self.stitle = shortTitle[0].text
+
     def addButtons(self):
     # <button type="button" class="collapsible"></button>
         for num in self.soup.find_all('num'):
@@ -149,7 +154,7 @@ class Omni_Parser(object):
     # SOURCE: https://www.codegrepper.com/code-examples/whatever/save+html+to+file+jinja2
     def createHTML(self):
         template1 = self.env.get_template('index_template.html')
-        output_from_parsed_template1 = template1.render(info=self.info, text=self.text)
+        output_from_parsed_template1 = template1.render(info=self.info, text=self.text, st=self.stitle)
         with open("static/rendered_html/index.html", "w") as fh:
             fh.write(output_from_parsed_template1)
 
@@ -177,7 +182,8 @@ class Omni_Parser(object):
                             secnext = self.info[j+k+1][2]
                             break
 
-                output_from_parsed_template2 = template2.render(sec=i, text=self.text[index], crumbs=self.getCrumbs(self.text[index]['identifier']), ps=secprev, ns=secnext)
+
+                output_from_parsed_template2 = template2.render(sec=i, text=self.text[index], crumbs=self.getCrumbs(self.text[index]['identifier']), ps=secprev, ns=secnext, st=self.stitle)
 
                 with open("static/rendered_html/section_" + str(i) + ".html", "w") as fh:
                     fh.write(output_from_parsed_template2)

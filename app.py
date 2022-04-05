@@ -19,6 +19,7 @@ def upload_file():
         f.save(secure_filename(filename))
         parser = Omni_Parser(secure_filename(filename))
         parser.findExternalLinks()
+        parser.getShortTitle()
         parser.create_Arrays()
         parser.createHTML()
         parser.createSectionHTML()
