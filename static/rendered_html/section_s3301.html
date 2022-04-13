@@ -48,11 +48,12 @@
                     </div>
 
                     <div>
-                        <div id="textAreaDiv">
-                            <textarea name='message' id='message_box'></textarea>
+                        <button class="tooltip" onclick="annotateSelection();"><i class="fa-solid fa-sticky-note fa-2x"></i>
+                            <span class="tooltiptext">Add Annotation</span>
+                        </button>
+                        <div style="visibility: visible;" id="textAreaDiv">
                             <input name='receiver_id' type='text' id='number' style="display: none" value="">
-                            <button class="tooltip"><i class="fa-solid fa-sticky-note fa-2x"></i><span class="tooltiptext">Add Annotation</span>
-                            </button>
+                            <textarea name='message' id='message_box'></textarea>
                             <!-- <button id='btn' class='fa-solid fa-sticky-note fa-2x' type='submit'>Add Annotation</button> -->
                         </div>
                     </div> 

@@ -23,6 +23,7 @@ def upload_file():
         parser.create_Arrays()
         parser.createHTML()
         parser.createSectionHTML()
+        parser.addDefiniions()
         parser.addButtons()
         # redirect
         return redirect('/static/rendered_html/index.html')

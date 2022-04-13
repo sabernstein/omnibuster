@@ -38,9 +38,9 @@ document.body.addEventListener("click", function() {
 })
 
 function popUpText() {
-    definitions = document.getElementById("[unique ID for defintion]")
+    // definitions = document.getElementById("[unique ID for defintion]")
     // document.getElementById("myPopup").innerHTML = definitions.innerHTML
-    document.getElementById("myPopup").innerHTML = '"Administration" and "Administrator" mean the Small Business Administration and the Administrator thereof, respectively.'
+    document.getElementById("myPopup").innerHTML = '"Administration" and "Administrator" mean the Small Business Administration and the Administrator thereof, respectively.';
     var popup = document.getElementById("myPopup");
     popup.classList.toggle("show");            
 }       
@@ -54,7 +54,42 @@ function highlightSelection() {
     span.style.backgroundColor = "yellow";
     span.appendChild(selectedContent);
     selection.insertNode(span);
-    window.getSelection().removeAllRanges()
+    window.getSelection().removeAllRanges();
+}
+
+// function popUpAnnotation() {
+//     // definitions = document.getElementById("[unique ID for defintion]")
+//     // document.getElementById("myPopup").innerHTML = definitions.innerHTML
+//     document.getElementById("myAnnotation").innerHTML = 'test annotation';
+//     var popup = document.getElementById("myAnnotation");
+//     popup.classList.toggle("show");            
+// }    
+
+function annotateSelection() {       
+    let selection= window.getSelection().getRangeAt(0);
+    let selectedContent = selection.extractContents();
+    let annotationContent = document.getElementById("message_box").value;
+    var span = document.createElement("span");
+    span.style.backgroundColor = "greenyellow";
+    span.className = "popup";
+    span.onclick = function() {
+        document.getElementById("myAnnotation").innerHTML = annotationContent;
+        var popup = document.getElementById("myAnnotation");
+        popup.classList.toggle("show");
+    }
+    span.appendChild(selectedContent);
+    selection.insertNode(span);
+
+
+    span.insertAdjacentHTML('beforeend','<span class="popuptext" id="myAnnotation"></span>',);
+
+    // var span2 = document.creatElement("span");
+    // span2.textContent = annotationContent;
+    // span2.appendChild(annotationContent);
+
+    // console.log(document.getElementById("message_box").value);
+
+    window.getSelection().removeAllRanges();
 }
 
 function toggleGuidebars() {

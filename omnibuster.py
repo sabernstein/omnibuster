@@ -72,6 +72,12 @@ class Omni_Parser(object):
         this_string = this_string.replace(u"\u201D", '')
         return this_string
 
+    def addDefiniions(self):
+        # I'm about to seriously hardcode something for illustration purposes!!
+        for section in self.soup.find_all('section', string=True):                            
+            section.string = section.string.replace('Administration', '<div class="popup" onclick="popUpText()">Administration<span class="popuptext" id="myPopup"></span></div>')
+
+
     def findLinks(self, this_designator):
         label = self.cleanTocLabel(this_designator.text)
 
@@ -90,6 +96,8 @@ class Omni_Parser(object):
                             i = section['identifier']
                             i_split = i.split('/')
                             sec = i_split[len(i_split)-1]
+
+
                             return sec
 
     def getShortTitle(self):
