@@ -72,6 +72,7 @@ function annotateSelection() {
     var span = document.createElement("span");
     span.style.backgroundColor = "greenyellow";
     span.className = "popup";
+    span.style.textDecoration = "none"
     span.onclick = function() {
         document.getElementById("myAnnotation").innerHTML = annotationContent;
         var popup = document.getElementById("myAnnotation");
@@ -81,7 +82,7 @@ function annotateSelection() {
     selection.insertNode(span);
 
 
-    span.insertAdjacentHTML('beforeend','<span class="popuptext" id="myAnnotation"></span>',);
+    span.insertAdjacentHTML('beforeend','<span class="popuptext" id="myAnnotation" style="text-align:center"></span>',);
 
     // var span2 = document.creatElement("span");
     // span2.textContent = annotationContent;
