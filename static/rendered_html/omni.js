@@ -74,10 +74,12 @@ function annotateSelection() {
     span.className = "popup";
     span.style.textDecoration = "none"
     span.onclick = function() {
+        // need a unique form for myAnnotation if you want the popups to show up in different places
         document.getElementById("myAnnotation").innerHTML = annotationContent;
         var popup = document.getElementById("myAnnotation");
         popup.classList.toggle("show");
     }
+    
     span.appendChild(selectedContent);
     selection.insertNode(span);
 

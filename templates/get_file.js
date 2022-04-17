@@ -165,7 +165,7 @@ function getDocument(e) {
 			console.log('xhr is:');
 			console.log(xhr);
 
-			$('#getDocResults').text(data);
+			$('#file').text(data);
 
 			console.log('end callback for getDocument()');
 			return data;

@@ -177,7 +177,10 @@
                         class="ls-form"
                         data-ls-target-doc="bill"
                         data-ls-target-doc-desc="congressional bill"
+                        class='upload' action="/submit" method="POST" enctype="multipart/form-data"
                     >
+
+
                         <div class="row g-4 mb-5">
                             <div class="col-sm">
                                 <div class="form-floating">
@@ -411,11 +414,8 @@
                         </div>
                         <div class="row g-4">
                             <div class="col-auto mx-auto">
-                                <button
-                                    id="btnSubmitBill"
-                                    type="submit" 
-                                    class="float-left submit-button"
-                                >
+                                <button id="myButton" type="submit" class="float-left submit-button">
+                                    <!-- type="file" id="file" name="file"  -->
                                     Submit
                                 </button>
                             </div>
@@ -427,16 +427,18 @@
         </div>
 
         <!-- output -->
-<!--         <div class="row" style="background: lightyellow; border: 2px solid blue">
+        <div class="row" style="background: lightyellow; border: 2px solid blue">
             <h4 class="col-12 p-3 text-center">OUTPUT:</h4>
             <div
-                id="getDocResults"
+                type="file" 
+                id="file" 
+                name="file"
                 class="col-12 mx-3 mb-3 p-3"
                 style="border: 1px solid red"
             >
                 &nbsp
             </div>
-        </div> -->
+        </div>
         <!-- end output -->
 
         <!-- scripts -->
@@ -462,7 +464,7 @@
             referrerpolicy="no-referrer"
         ></script>
 
-        <script src="get_file.js" async defer></script>
+        <script src="/templates/get_file.js" async defer></script>
         <!-- end scripts -->
 
 </body>
