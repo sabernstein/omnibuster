@@ -199,11 +199,12 @@
                 >
                     <form
                         id="formGetBill"
-                        action="submit"
                         class="ls-form"
                         data-ls-target-doc="bill"
                         data-ls-target-doc-desc="congressional bill"
-                        class='upload' action="/submit" method="POST" enctype="multipart/form-data"
+                        action="/submit" 
+                        method="POST" 
+                        enctype="multipart/form-data"
                     >
 
 
@@ -440,9 +441,11 @@
                         </div>
                         <div class="row g-4">
                             <div class="col-auto mx-auto">
-                                <button id="myButton" type="submit" class="float-left submit-button ls-btn-submit">
+                                <button id="myButton" class="float-left submit-button ls-btn-submit">
                                     Submit
                                 </button>
+
+                                <input type="hidden" id="getDocResults" name="getDocResults"/>
 
                             </div>
                         </div>
@@ -456,9 +459,7 @@
 <!--         <div class="row" style="background: lightyellow; border: 2px solid blue">
             <h4 class="col-12 p-3 text-center">OUTPUT:</h4>
             <div
-                type="file" 
-                id="file" 
-                name="file"
+                id="getDocResults" 
                 class="col-12 mx-3 mb-3 p-3"
                 style="border: 1px solid red"
             >
