@@ -165,7 +165,17 @@ function getDocument(e) {
 			console.log('xhr is:');
 			console.log(xhr);
 
-			$('#file').text(data);
+			$('#getDocResults').text(data);
+
+			// const $blob = new Blob([data]);
+			// const url = window.URL.createObjectURL($blob);
+			// const a = document.createElement('a');
+			// a.style.display = 'none';
+			// a.href = url;
+			// a.download = 'document.xml';
+			// document.body.appendChild(a);
+
+			// console.log(a.href)
 
 			console.log('end callback for getDocument()');
 			return data;

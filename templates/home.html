@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
     <title>Omnibuster Upload</title>
     <link rel="stylesheet" href="style.css">
@@ -32,6 +32,32 @@
         crossorigin="anonymous"
         referrerpolicy="no-referrer"
     />
+
+        <!-- scripts -->
+    <!-- jquery v3.6.0 -->
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer"
+    ></script>
+    <!-- bootstrap.js bundle 5.1.3 includes popper -->
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.min.js"
+        integrity="sha512-OvBgP9A2JBgiRad/mM36mkzXSXaJE9BEIENnVEmeZdITvwT09xnxLtT4twkCa8m/loMbPHsvPl0T8lRGVBwjlQ=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer"
+    ></script>
+    <!-- bootstrap-select v1.13.18 -->
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.18/js/bootstrap-select.min.js"
+        integrity="sha512-yDlE7vpGDP7o2eftkCiPZ+yuUyEcaBwoJoIhdXv71KZWugFqEphIS3PU60lEkFaz8RxaVsMpSvQxMBaKVwA5xg=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer"
+    ></script>
+
+    <script src="/static/rendered_html/get_file.js" async defer></script>
+    <!-- end scripts -->
 
     <style>
         .imgbox {
@@ -414,10 +440,10 @@
                         </div>
                         <div class="row g-4">
                             <div class="col-auto mx-auto">
-                                <button id="myButton" type="submit" class="float-left submit-button">
-                                    <!-- type="file" id="file" name="file"  -->
+                                <button id="myButton" type="submit" class="float-left submit-button ls-btn-submit">
                                     Submit
                                 </button>
+
                             </div>
                         </div>
                     </form>
@@ -427,7 +453,7 @@
         </div>
 
         <!-- output -->
-        <div class="row" style="background: lightyellow; border: 2px solid blue">
+<!--         <div class="row" style="background: lightyellow; border: 2px solid blue">
             <h4 class="col-12 p-3 text-center">OUTPUT:</h4>
             <div
                 type="file" 
@@ -438,34 +464,9 @@
             >
                 &nbsp
             </div>
-        </div>
+        </div> -->
         <!-- end output -->
 
-        <!-- scripts -->
-        <!-- jquery v3.6.0 -->
-        <script
-            src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
-            integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
-            crossorigin="anonymous"
-            referrerpolicy="no-referrer"
-        ></script>
-        <!-- bootstrap.js bundle 5.1.3 includes popper -->
-        <script
-            src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.min.js"
-            integrity="sha512-OvBgP9A2JBgiRad/mM36mkzXSXaJE9BEIENnVEmeZdITvwT09xnxLtT4twkCa8m/loMbPHsvPl0T8lRGVBwjlQ=="
-            crossorigin="anonymous"
-            referrerpolicy="no-referrer"
-        ></script>
-        <!-- bootstrap-select v1.13.18 -->
-        <script
-            src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.18/js/bootstrap-select.min.js"
-            integrity="sha512-yDlE7vpGDP7o2eftkCiPZ+yuUyEcaBwoJoIhdXv71KZWugFqEphIS3PU60lEkFaz8RxaVsMpSvQxMBaKVwA5xg=="
-            crossorigin="anonymous"
-            referrerpolicy="no-referrer"
-        ></script>
-
-        <script src="/templates/get_file.js" async defer></script>
-        <!-- end scripts -->
 
 </body>
 </html>

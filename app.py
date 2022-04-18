@@ -42,10 +42,10 @@ def upload_file():
 @app.route('/submit', methods = ["GET", "POST"])
 def downloadFile():
     if request.method == 'POST':
-        f = request.files['file']
-        filename = str(f.filename)
-        f.save(secure_filename(filename))
-        parser = Omni_Parser(secure_filename(filename))
+        f = request.form['url']
+        # filename = str(f.filename)
+        # f.save(secure_filename(filename))
+        parser = Omni_Parser(f, 0)
         parser.findExternalLinks()
         parser.getShortTitle()
         parser.create_Arrays()
