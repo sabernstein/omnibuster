@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="/static/rendered_html/uslm.css">
+        <link rel="stylesheet" href="/static/rendered_html/style.css">
+        <script src="https://kit.fontawesome.com/2ce1080035.js" crossorigin="anonymous"></script>
+        <script lang="text/javascript" src="/static/rendered_html/omni.js" defer></script>
+
+        <!-- Table of Contents button section sheet. Would ideally be a working breadcrumb --> 
+        <img src="../omni.jpeg" alt="Omnibuster" style="width:100%">
+        <ul class="breadcrumb" style="text-align:center">
+            <!-- TODO GENERALIZE THIS --> 
+            <li><a href="index.html"> Table of Contents</a></li>
+            
+                <li> Division A </a></li>
+            
+                <li> Title III </a></li>
+            
+                <li> Subtitle A </a></li>
+            
+                <li> Part I </a></li>
+            
+                <li> Subpart A </a></li>
+            
+                <li> Section 3102 </a></li>
+            
+        </ul>
+
+        <div class="stitle">
+            <h1> Coronavirus Aid, Relief, and Economic Security Act </h1>
+        </div>
+
+    </head>
+
+    <body>
+        <div class="section">
+            <div class="buttons">
+                <div class="navbar">
+
+                <div class="buttons">
+                    <div>
+                        <button class="tooltip" onclick="toggleGuidebars();"><i class="fa-solid fa-grip-lines-vertical fa-2x"></i><span class="tooltiptext">Toggle Guidebars</span>
+                        </button>
+                    </div>
+                    <div>
+                        <button class="tooltip" onclick="highlightSelection();"><i class="fa-solid fa-highlighter fa-2x"></i>
+                        <span class="tooltiptext">Highlight Text</span>
+                        </button>                    
+                    </div>
+
+                    <div>
+                        <button class="tooltip" onclick="annotateSelection();"><i class="fa-solid fa-sticky-note fa-2x"></i>
+                            <span class="tooltiptext">Add Annotation</span>
+                        </button>
+                        <div style="visibility: visible;" id="textAreaDiv">
+                            <input name='receiver_id' type='text' id='number' style="display: none" value="">
+                            <textarea name='message' id='message_box'></textarea>
+                            <!-- <button id='btn' class='fa-solid fa-sticky-note fa-2x' type='submit'>Add Annotation</button> -->
+                        </div>
+                    </div> 
+                </div>
+
+                </div>
+            </div>
+
+            <!-- <div class="stitle">
+                <h1> Coronavirus Aid, Relief, and Economic Security Act </h1>
+            </div> -->
+
+            <p> 
+                <section id="d3355e13208" identifier="/us/bill/116/hr/748/dA/tIII/stA/ptI/sptA/s3102" role="instruction" style="-uslm-lc:I650144"><num value="3102">SEC. 3102. </num><heading>REQUIRING THE STRATEGIC NATIONAL STOCKPILE TO INCLUDE CERTAIN TYPES OF MEDICAL SUPPLIES.</heading><content style="-uslm-lc:I650120">  Section 319F–2(a)(1) of the Public Health Service Act (<a href="https://uscode.house.gov/view.xhtml?req=granuleid:USC-prelim-title42-section247d–6b&amp;num=0&amp;edition=prelim" target="_blank"><ref href="/us/usc/t42/s247d–6b/a/1">42 U.S.C. 247d–6b(a)(1)</ref></a>) <amendingAction type="amend">is amended</amendingAction> by <amendingAction type="insert">inserting</amendingAction> “<quotedText>(including personal protective equipment, ancillary medical supplies, and other applicable supplies required for the administration of drugs, vaccines and other biological products, medical devices, and diagnostic tests in the stockpile)</quotedText>” after “<quotedText>other supplies</quotedText>”.</content>
+</section>
+            </p>
+
+
+        </div>  
+
+        <!-- previous section -->
+        <button onclick="location.href='section_s3101.html'" id="ls-btn-prev-sec" title="go to previous section">
+            <i class="fas fa-angle-left"></i>
+        </button>
+        <!-- end previous section -->
+
+        <!-- next section -->
+        <button onclick="location.href='section_s3103.html'" id="ls-btn-next-sec" title="go to next section" data-ls-target-index="2">
+            <i class="fas fa-angle-right"></i>
+        </button>
+        <!-- end next section -->
+
+    </body>

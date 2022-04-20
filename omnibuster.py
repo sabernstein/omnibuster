@@ -112,11 +112,6 @@ class Omni_Parser(object):
             button_tag['class']='collapsible'
             button_tag.string = ''
 
-            # temp_tag = soup.new_tag('temp')
-            # num.insert_before(temp_tag)
-            # temp_tag.wrap(button_tag)
-            # temp_tag.extract()
-
             num.insert_before(button_tag)
 
 
